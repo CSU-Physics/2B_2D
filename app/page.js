@@ -58,15 +58,51 @@ export default function Home() {
             <h1 className=" text-xl sm:text-2xl font-bold" >Quantum Two-Body Bound States in Two Dimensions: Analytical and Numerical Perspectives</h1>
           </div>
           <div className="leading-6 md:px-8 lg:px-12 py-2" >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-            molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-            numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-            optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-            obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-            nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-            tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-            quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
-            sapiente officiis modi at sunt excepturi expedita sint?
+            Welcome to our interactive GitHub
+            -
+            hosted website, dedicated to deepening your
+            understanding of quantum two
+            -
+            body bound states in two
+            -
+            dimensional semiconductor
+            materials. Designed primarily for undergraduate students with a basic foundation
+            in
+            quantum physics, this platform combines theoretical insights with hands
+            -
+            on
+            computational training.
+            Our theoretical modules introduce quantum mechanics and provide an in
+            -
+            depth
+            exploration of the Schrödinger equation, focusing on its application to quant
+            um two
+            -
+            body
+            bound states. We also examine the Lippmann
+            -
+            Schwinger equation in both momentum and
+            configuration spaces, supported by case studies
+            -
+            including the hydrogen atom, deuteron,
+            and exciton
+            -
+            all in two dimensions.
+            Complementing the theory, our interact
+            ive Python Jupyter Notebooks offer practical
+            implementations of the Lippmann
+            -
+            Schwinger equation. Detailed case studies allow you to
+            analyze a hydrogen atom using the Coulomb potential, a deuteron using the Malfliet
+            -
+            Tjon
+            potential, and an exciton using the
+            Rytova
+            -
+            Keldysh potential. Enjoy exploring and learning
+            through this comprehensive, hands
+            -
+            on resource!
           </div>
         </section>
         {/* Transport_Equation */}
