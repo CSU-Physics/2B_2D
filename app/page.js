@@ -60,7 +60,7 @@ export default function Home() {
             {/* <a className="" target="" href={"https://csu-physics.github.io/"} >
               <FaArrowLeft size={60} className="w-[45px] h-[35px] " />
             </a> */}
-            <h1 className=" text-xl sm:text-2xl font-bold" >Quantum Two-Body Bound States in Two Dimensions: Analytical and Numerical Perspectives</h1>
+            <h1 className=" text-xl sm:text-2xl" >Quantum Two-Body Bound States in Two Dimensions: Analytical and Numerical Perspectives</h1>
           </div>
           <div className="leading-6 md:px-8 lg:px-12 py-2" >
             Welcome to our interactive GitHub
@@ -112,7 +112,7 @@ export default function Home() {
         </section>
         {/* Transport_Equation */}
         <section className="px-1 md:px-14 lg:px-28 my-4" >
-          <h2 className=" text-xl font-bold" >Lippmann–Schwinger Equation for 2B Bound States in 2D</h2>
+          <h2 className=" text-lg sm:text-xl" >Lippmann–Schwinger Equation for 2B Bound States in 2D</h2>
 
           <div>
             <p>The study of bound states in a two-body (2B) system, consisting of
@@ -223,7 +223,7 @@ export default function Home() {
               nature of the interactions and the resulting bound states.
             </p>
 
-            <h1 id=" numerical-implementation" className="text-xl font-bold" >Numerical Implementation</h1>
+            <h2 id=" numerical-implementation" className="text-lg sm:text-xl" >Numerical Implementation</h2>
             <p>To numerically solve the Lippmann-Schwinger equation <a
               href="#eq.LS_pw" data-reference-type="eqref"
               data-reference="eq.LS_pw">[eq.LS_pw]</a> for 2B bound states in 2D,
@@ -249,7 +249,7 @@ export default function Home() {
               <span class="math inline">\(E\)</span>. The eigenvalue <span
                 class="math inline">\(\lambda\)</span> is used as a criterion to verify
               the solution.</p>
-            <h3 className="text-lg font-bold" id="determining-the-binding-energy">Determining
+            <h3 className="text-md sm:text-lg" id="determining-the-binding-energy">Determining
               the Binding Energy</h3>
 
             <p>The binding energy <span class="math inline">\(E\)</span> is
@@ -286,8 +286,8 @@ export default function Home() {
 
 
 
-            <h1 className=" text-xl sm:text-2xl font-bold" id="numerical-results">Numerical Results</h1>
-            <h2 className=" text-xl font-bold" id="pedagogical-and-numerical-test-hydrogen-atom-in-2d">Pedagogical
+            <h1 className=" text-xl sm:text-2xl" id="numerical-results">Numerical Results</h1>
+            <h2 className=" text-lg sm:text-xl" id="pedagogical-and-numerical-test-hydrogen-atom-in-2d">Pedagogical
               and Numerical Test: Hydrogen Atom in 2D</h2>
             <p>The study of the hydrogen atom in two dimensions (2D) serves as a
               pedagogical example for understanding bound states and wave functions in
@@ -409,10 +409,10 @@ export default function Home() {
             </div>
 
             <div className="my-10" >
-              <iframe src="https://csu-physics.github.io/Pedagogical_-_Numerical_Test-Hydrogn_Atom-in-2D/lab/index.html?enableMemoryStorage=1" width="100%" height="650px" />
+              <iframe src="https://csu-physics.github.io/Hydrogn_2D.github.io/lab/index.html?enableMemoryStorage=1" width="100%" height="650px" />
             </div>
             <div>
-              <h2 className=" text-xl font-bold" id="pedagogical-and-numerical-test-hydrogen-atom-in-2d">Pedagogical and
+              <h2 className=" text-lg sm:text-xl" id="pedagogical-and-numerical-test-hydrogen-atom-in-2d">Pedagogical and
                 Numerical Test: Deuteron in 2D</h2>
               <p>This section details the numerical simulation of a deuteron (the
                 bound state of one proton and one neutron) in two dimensions using the
@@ -550,7 +550,7 @@ export default function Home() {
             </div>
 
             <div>
-              <h2 className=" text-xl font-bold" id="excitons-electron-hole-bound-states-in-2d-materials">Excitons:
+              <h2 className=" text-lg sm:text-xl" id="excitons-electron-hole-bound-states-in-2d-materials">Excitons:
                 Electron-Hole Bound States in 2D Materials</h2>
               <p>Excitons are quasiparticles formed by the binding of an electron and
                 a hole through Coulombic attraction, playing a pivotal role in the
@@ -573,7 +573,7 @@ export default function Home() {
                 for exploiting the optoelectronic properties of 2D materials across a
                 variety of applications, from photovoltaics and light-emitting diodes to
                 quantum computing and biomedical imaging.</p>
-              <h3 className="text-lg font-bold" id="the-rytova-keldysh-potential">The Rytova-Keldysh potential</h3>
+              <h3 className="text-md sm:text-lg" id="the-rytova-keldysh-potential">The Rytova-Keldysh potential</h3>
               <p>The Rytova-Keldysh (RK) potential is fundamental in modeling exciton
                 behaviors in 2D materials. This model captures the nuanced electron-hole
                 interactions more accurately in such confined systems compared to
@@ -729,7 +729,7 @@ export default function Home() {
                 </table>
               </div>
 
-              <h3 className="text-lg font-bold" id="exciton-binding-energy">Exciton Binding Energy</h3>
+              <h3 className="text-md sm:text-lg" id="exciton-binding-energy">Exciton Binding Energy</h3>
               <p>This section details the binding energies derived from various
                 computational methods and experimental findings, highlighting their
                 variances and potential sources.
@@ -814,7 +814,7 @@ export default function Home() {
                 </table>
               </div>
               <div className="my-10" >
-                <iframe src="https://csu-physics.github.io/Excitons_2D/lab/index.html?enableMemoryStorage=1" width="100%" height="650px" />
+                <iframe src="https://csu-physics.github.io/Excitons_2D/lab/index.html?enableMemoryStorage=0" width="100%" height="650px" />
               </div>
             </div>
 
