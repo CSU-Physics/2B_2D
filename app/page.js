@@ -1,3 +1,4 @@
+"use client"
 import { FaHome } from "react-icons/fa";
 import header from "./Assets/2B_2D.jpeg";
 import fig from "./Assets/fig.png"
@@ -8,7 +9,7 @@ import photo_4 from "./Assets/Deuteron_WF_MT_a.png"
 import photo_5 from "./Assets/Exciton_V_q.png"
 import photo_6 from "./Assets/Exciton_WF_RK_r.png"
 import photo_7 from "./Assets/Exciton_medium.png"
-
+import { useEffect } from "react";
 
 import Table_1 from "./Assets/Table_1.png"
 import Table_2 from "./Assets/Table_2.png"
@@ -25,7 +26,11 @@ import Script from "next/script";
 
 
 export default function Home() {
-
+  // useEffect(() => {
+  //   // Delete the cookie on startup
+  //   document.cookie = 'userSession=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+  //   console.log('Cookie deleted on startup');
+  // }, []);
   return (
     <main className="bg-white" >
       <Script
@@ -297,10 +302,10 @@ export default function Home() {
                 focus to remain on the interaction and quantum behavior.</p></li>
               <li><p>Two-Body Potential: The interaction potential in real space is
                 given by: <span class="math display">\[V(r) = -\dfrac{2}{`{r}`},\]</span>
-                which translates to a momentum-space representation as: <span
-                  class="math display">\[V({`{\\bf p}`}, {`{\\bf p}`}&#39;) = \dfrac{-1}{`{\\pi`}
-                  \vert
-                  {`{\\bf q}`}{`\\vert}`}, \quad {`{\\bf q}`}= {`{\\bf p}`}- {`{\\bf p}`}&#39;.\]</span> This
+                which translates to a momentum-space representation as:
+                <span class="math display">{`\\[V({\\bf p}, {\\bf p}') = \\dfrac{-1}{\\pi \\vert {\\bf q}\\vert}, \\quad {\\bf q}= {\\bf p}- {\\bf p}'.\\]`}</span>
+
+                This
                 form
                 of the potential reflects the reduced dimensionality and ensures
                 proper
@@ -332,11 +337,11 @@ export default function Home() {
               </p>
               {/* Table 1 */}
 
-              <div className="flex justify-center" >
-                <Image src={Table_1} className="w-3/4 my-2 justify-center " alt={"#"} />
-              </div>
-
               {/* <div className="flex justify-center" >
+                <Image src={Table_1} className="w-3/4 my-2 justify-center " alt={"#"} />
+              </div> */}
+
+              <div className="flex justify-center" >
                 <table className="w-[605px] px-2 py-6" >
 
                   <thead>
@@ -394,7 +399,7 @@ export default function Home() {
                     </tr>
                   </tbody>
                 </table>
-              </div> */}
+              </div>
 
             </div>
             <div class="flex justify-center ">
@@ -440,10 +445,10 @@ export default function Home() {
               </ul>
 
               {/* Table 2 */}
-              <div className="flex justify-center" >
+              {/* <div className="flex justify-center" >
                 <Image src={Table_2} className="w-3/4 my-2 justify-center " alt={"#"} />
-              </div>
-              {/* <div id="table:MT--I-parameters" className="flex justify-center">
+              </div> */}
+              <div id="table:MT--I-parameters" className="flex justify-center">
                 <table className="w-[700px] px-2 py-6" >
                   <caption>Parameters of two models of MT potential used in our
                     calculations. Hadi check parameters!</caption>
@@ -485,7 +490,7 @@ export default function Home() {
                     </tr>
                   </tbody>
                 </table>
-              </div> */}
+              </div>
 
               <div class="flex justify-center">
                 <p><Image src={photo_2} className="w-[500px] my-2 justify-center " alt={"#"} />
@@ -498,10 +503,10 @@ export default function Home() {
               </p>
 
               {/* Table 3*/}
-              <div className="flex justify-center" >
+              {/* <div className="flex justify-center" >
                 <Image src={Table_3} className="w-1/3 my-2 justify-center " alt={"#"} />
-              </div>
-              {/* <div id="Deuteron_bidning_energy" className="flex justify-center" >
+              </div> */}
+              <div id="Deuteron_bidning_energy" className="flex justify-center" >
                 <table className="w-1/2 px-2 py-6" >
                   <thead>
                     <tr class="header">
@@ -519,7 +524,7 @@ export default function Home() {
                     <tr class="odd">
                       <td styles={{ textAlign: "center" }}>Model-1</td>
                       <td styles={{ textAlign: "center" }}></td>
-                      <td colspan="2" styles={{ textAlign: "center" }}>Model-2</td>
+                      <td colSpan="2" styles={{ textAlign: "center" }}>Model-2</td>
                       <td styles={{ textAlign: "center" }}></td>
                     </tr>
                     <tr class="even">
@@ -534,13 +539,13 @@ export default function Home() {
                     </tr>
                   </tbody>
                 </table>
-              </div> */}
+              </div>
               <div className="flex flex-row justify-center" >
                 <Image src={photo_3} className="w-[500px] my-2 justify-center " alt={"#"} />
                 <Image src={photo_4} className="w-[500px] my-2 justify-center " alt={"#"} />
               </div>
               <div className="my-10" >
-                <iframe src="https://csu-physics.github.io/Pedagogical_-_Numerical_Test-Hydrogn_Atom-in-2D/lab/index.html?enableMemoryStorage=0" width="100%" height="650px" />
+                <iframe src="https://csu-physics.github.io/Pedagogical-and-Numerical-Test-Deuteron-in-2D/lab/index.html?enableMemoryStorage=0" width="100%" height="650px" />
               </div>
             </div>
 
@@ -619,10 +624,10 @@ export default function Home() {
 
 
               {/* Table 4*/}
-              <div className="flex justify-center" >
-                <Image src={Table_4} className="w-3/4 my-2 justify-center " alt={"#"} />
-              </div>
               {/* <div className="flex justify-center" >
+                <Image src={Table_4} className="w-3/4 my-2 justify-center " alt={"#"} />
+              </div> */}
+              <div className="flex justify-center" >
                 <table className="w-[700px] px-2 py-6" >
 
                   <thead>
@@ -722,7 +727,7 @@ export default function Home() {
                     </tr>
                   </tbody>
                 </table>
-              </div> */}
+              </div>
 
               <h3 className="text-lg font-bold" id="exciton-binding-energy">Exciton Binding Energy</h3>
               <p>This section details the binding energies derived from various
@@ -731,10 +736,10 @@ export default function Home() {
               </p>
 
               {/* Table 5*/}
-              <div className="flex justify-center" >
+              {/* <div className="flex justify-center" >
                 <Image src={Table_5} className="w-3/4 my-2 justify-center " alt={"#"} />
-              </div>
-              {/* <div className="grid content-center justify-items-center w-full " >
+              </div> */}
+              <div className="grid content-center justify-items-center w-full " >
                 <table className="w-1/2 " >
                   <caption>Reported exciton binding energies (meV) for different TMD
                     materials.</caption>
@@ -807,281 +812,12 @@ export default function Home() {
                     </tr>
                   </tbody>
                 </table>
-              </div> */}
-
-            </div>
-            <div>
-              <h1 className=" text-xl sm:text-2xl font-bold" id="sec:exciton_config_space">Exciton in Configuration Space</h1>
-              <p>In this section, we explore the properties of excitons in
-                configuration space. An exciton is defined as a bound state of an
-                electron and a hole which are attracted to each other by the Coulomb
-                force. Understanding the spatial distribution of these states is
-                critical for applications in optoelectronic devices.
-                <span
-                  class="math display">
-                  \[\begin{`{aligned}`}
-                  \psi(r) &amp;=&amp; 2\pi \int_0^{`{\\infty}`} dp \ p \ \psi(p) \ J_0(pr), \\
-                  \langle r \rangle &amp;=&amp; 2\pi \int_0^{`{\\infty}`} dr \,r^2\psi^2(r), \\
-                  \langle\psi(r)|\psi(r)\rangle &amp;=&amp; 2\pi \int_0^\infty dr\,r\psi^2(r) = 1
-
-                  \end{`{aligned}`}\]
-                </span>
-              </p>
-              <h2 className=" text-xl font-bold" id="exciton-energy-levels-and-sizes">Exciton Energy Levels and Sizes</h2>
-
-
-              {/* Table 6*/}
-              <div className="flex justify-center" >
-                <Image src={Table_6} className="w-3/4 my-2 justify-center " alt={"#"} />
               </div>
-              {/* <div className="grid content-center justify-items-center" >
-                <table className="grid content-center justify-items-center" >
-                  <caption>The parameters of electron-hole interaction in MoS<span
-                    class="math inline">\(_2\)</span>. </caption>
-                  <tbody>
-                    <tr class="odd">
-                      <td styles={{ textAlign: "center" }}><span class="math inline">\(m_e
-                        (m_0)\)</span></td>
-                      <td styles={{ textAlign: "center" }}><span
-                        class="math inline">\(0.47\)</span></td>
-                    </tr>
-                    <tr class="even">
-                      <td styles={{ textAlign: "center" }}><span class="math inline">\(m_h
-                        (m_0)\)</span></td>
-                      <td styles={{ textAlign: "center" }}><span
-                        class="math inline">\(0.54\)</span></td>
-                    </tr>
-                    <tr class="odd">
-                      <td styles={{ textAlign: "center" }}><span
-                        class="math inline">\(r_0\)</span>
-                        (Å)</td>
-                      <td styles={{ textAlign: "center" }}>27.0526843464196</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div> */}
-
-              <p><span id="para_eh_model2_v2" label="para_eh_model2_v2"></span></p>
-              <div class="flex justify-center">
-                <p><Image src={photo_5} className="w-[500px] my-2 justify-center " alt={"#"} /></p>
+              <div className="my-10" >
+                <iframe src="https://csu-physics.github.io/Excitons_2D/lab/index.html?enableMemoryStorage=1" width="100%" height="650px" />
               </div>
-              <p>The following table presents the computed energy levels and effective
-                sizes of excitons in their ground and excited states. This data helps in
-                understanding how the binding energy and the spatial extent of excitons
-                change with different quantum numbers.</p>
             </div>
 
-            {/* Table 7*/}
-            <div className="flex justify-center" >
-              <Image src={Table_7} className="w-3/4 my-2 justify-center " alt={"#"} />
-            </div>
-
-            {/* <table>
-              <caption>Computed energy levels (in meV) and effective sizes (in
-                Angstroms) of excitons in their ground and first two excited states
-                across different numbers of mesh points for the magnitude of the
-                relative momentum (<span class="math inline">\(N_p\)</span>).</caption>
-              <tbody>
-                <tr class="odd">
-                  <td styles={{ textAlign: "center" }}></td>
-                  <td colSpan="2" styles={{ textAlign: "center" }}>Ground State</td>
-                  <td colSpan="2" styles={{ textAlign: "center" }}>1st Excited State</td>
-                  <td colSpan="2" styles={{ textAlign: "center" }}>2nd Excited State</td>
-                </tr>
-                <tr class="even">
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(N_p\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span class="math inline">\(\langle r
-                    \rangle^{(0)}\)</span> (Å)</td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(E_{`{2B}`}^{(0)}\)</span> (meV)</td>
-                  <td styles={{ textAlign: "center" }}><span class="math inline">\(\langle r
-                    \rangle^{(1)}\)</span> (Å)</td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(E_{`{2B}`}^{(1)}\)</span> (meV)</td>
-                  <td styles={{ textAlign: "center" }}><span class="math inline">\(\langle r
-                    \rangle^{(2)}\)</span> (Å)</td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(E_{`{2B}`}^{(2)}\)</span> (meV)</td>
-                </tr>
-                <tr class="odd">
-                  <td styles={{ textAlign: "center" }}>300</td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(7.434\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-785.9\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(25.45\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-352.6\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(48.46\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-215.2\)</span></td>
-                </tr>
-                <tr class="even">
-                  <td styles={{ textAlign: "center" }}>400</td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(7.484\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-775.2\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(25.71\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-343.8\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(49.14\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-207.0\)</span></td>
-                </tr>
-                <tr class="odd">
-                  <td styles={{ textAlign: "center" }}>500</td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(7.511\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-769.5\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(25.85\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-339.0\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(49.50\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-202.5\)</span></td>
-                </tr>
-                <tr class="even">
-                  <td styles={{ textAlign: "center" }}>600</td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(7.527\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-766.1\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(25.93\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-336.1\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(49.73\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-199.8\)</span></td>
-                </tr>
-                <tr class="odd">
-                  <td styles={{ textAlign: "center" }}>700</td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(7.537\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-763.8\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(25.98\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-334.2\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(49.87\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-198.0\)</span></td>
-                </tr>
-                <tr class="even">
-                  <td styles={{ textAlign: "center" }}>800</td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(7.543\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-762.3\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(26.02\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-332.9\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(49.97\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-196.7\)</span></td>
-                </tr>
-                <tr class="odd">
-                  <td styles={{ textAlign: "center" }}>900</td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(7.548\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-761.1\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(26.05\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-331.9\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(50.04\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-195.8\)</span></td>
-                </tr>
-                <tr class="even">
-                  <td styles={{ textAlign: "center" }}>1000</td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(7.551\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-760.3\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(26.06\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-331.2\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(50.09\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-195.1\)</span></td>
-                </tr>
-                <tr class="odd">
-                  <td styles={{ textAlign: "center" }}><strong>Extrap. <span
-                    class="math inline">\(1/N_p \to 0\)</span></strong></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(7.577\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-753.4\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(26.21\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-325.1\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(50.52\)</span></td>
-                  <td styles={{ textAlign: "center" }}><span
-                    class="math inline">\(-189.4\)</span></td>
-                </tr>
-              </tbody>
-            </table> */}
-
-            <div className="flex justify-center" >
-              <p><Image src={photo_6} className="w-[500px] my-2 justify-center " alt={"#"} /></p>
-            </div>
-
-
-            <h2 className=" text-xl font-bold"
-              id="testing-exciton-binding-energy-accuracy-via-hamiltonian-expectation-values">Testing
-              Exciton Binding Energy Accuracy via Hamiltonian Expectation Values</h2>
-            <p>To evaluate the accuracy of exciton binding energy numerically, one
-              effective approach is to compute the expectation value of the
-              Hamiltonian. This involves using the 2B exciton wave function to
-              calculate the expectation values of the free Hamiltonian, <span
-                class="math inline">\(\langle H_0 \rangle\)</span> , and the 2B
-              potential energy, <span class="math inline">\(\langle V
-                \rangle\)</span>. The relevant equations are as follows:
-            </p>
-
-            <p><span class="math display">\[\begin{`{aligned}`}
-              \langle H \rangle &amp;=&amp; \langle H_0 \rangle + \langle V \rangle, \\
-
-              \langle H_0 \rangle &amp;=&amp; 2\pi \int_0^{`{\\infty}`} dp\,p (\dfrac{`{p ^ 2}{2\mu}`}) \psi_m^2(p), \\
-
-              \langle V \rangle &amp;=&amp; 2\pi \int_0^{`{\\infty}`} dp\,p
-              \ \int_0^{`{\\infty}`} dp&#39;\,p&#39; \ V_m(p, p&#39;) \psi_m(p) \
-              \psi_m(p&#39;).
-              \end{`{aligned}`}\]</span></p>
-
-            <p>By integrating these equations, one can assess how closely the
-              calculated Hamiltonian expectation value aligns with the numerically
-              calculated exciton binding energy, providing a measure of the numerical
-              method’s accuracy.
-            </p>
-            {/* Table 8 */}
-            <div className="flex justify-center" >
-              <Image src={Table_8} className="w-3/4 my-2 justify-center " alt={"#"} />
-            </div>
-            <div className="my-10" >
-              <iframe src="https://csu-physics.github.io/Pedagogical_-_Numerical_Test-Hydrogn_Atom-in-2D/lab/index.html?enableMemoryStorage=1" width="100%" height="650px" />
-            </div>
           </div>
         </section>
       </div>
