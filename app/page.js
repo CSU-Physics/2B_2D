@@ -409,7 +409,7 @@ export default function Home() {
             </div>
 
             <div className="my-10" >
-              <iframe src="https://csu-physics.github.io/Hydrogn_2D.github.io/lab/index.html?enableMemoryStorage=1" width="100%" height="650px" />
+              <iframe src="https://csu-physics.github.io/Hydrogn_2D.github.io/lab/index.html" width="100%" height="650px" />
             </div>
             <div>
               <h2 className=" text-lg sm:text-xl" id="pedagogical-and-numerical-test-hydrogen-atom-in-2d">Pedagogical and
@@ -545,7 +545,7 @@ export default function Home() {
                 <Image src={photo_4} className="w-[500px] my-2 justify-center " alt={"#"} />
               </div>
               <div className="my-10" >
-                <iframe src="https://csu-physics.github.io/Pedagogical-and-Numerical-Test-Deuteron-in-2D/lab/index.html?enableMemoryStorage=0" width="100%" height="650px" />
+                <iframe src="https://kayvon-a.github.io/Deuteron_2D/lab/index.html?enableMemoryStorage=0" width="100%" height="650px" />
               </div>
             </div>
 
@@ -814,7 +814,7 @@ export default function Home() {
                 </table>
               </div>
               <div className="my-10" >
-                <iframe src="https://csu-physics.github.io/Excitons_2D/lab/index.html?enableMemoryStorage=0" width="100%" height="650px" />
+                <iframe src="https://msak-ai.github.io/Exciton_2D/lab/index.html?enableMemoryStorage=0" width="100%" height="650px" />
               </div>
             </div>
 
