@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="K. Adderley" />
+  <meta name="author" content="K. Mohseni" />
+  <meta name="author" content="M. R. Hadizadeh" />
+  <title>Open-Source Interactive Website for exciton Modeling via the Lippmann-Schwinger Equation</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Open-Source Interactive Website for exciton Modeling
+via the Lippmann-Schwinger Equation</h1>
+<p class="author">K. Adderley</p>
+<p class="author">K. Mohseni</p>
+<p class="author">M. R. Hadizadeh</p>
+</header>
+<h1 id="introduction">Introduction</h1>
+<p><em>Excitons</em>–Coulomb-bound electron-hole pairs in semiconductors
+and insulators–are canonical 2B quantum systems. Their formation,
+binding energies, and radiative recombination govern key optical and
+electronic responses and underpin technologies ranging from
+light-emitting diodes to photovoltaics <span class="citation"
+data-cites="Wang2018RMP MuellerMalic2018npj Regan2022NRM"></span>. In 2D
+materials, reduced dielectric screening and quantum confinement amplify
+excitonic effects, yielding large binding energies and rich many-body
+phenomena confirmed by precision spectroscopy in monolayer TMDs <span
+class="citation"
+data-cites="Chernikov2014PRL He2014PRL Hill2015NL"></span>. Accurate
+modeling, therefore, requires methods that move beyond elementary
+approximations and incorporate material-specific screening and
+band-structure inputs. The LS equation provides an integral-equation
+formulation equivalent to the Schrödinger eigenproblem with appropriate
+boundary conditions. For 2D excitons, both the bare Coulomb interaction
+and the Rytova-Keldysh (RK) potential are widely used, the latter
+capturing nonlocal, environment-dependent screening characteristic of
+atomically thin layers and their substrates <span class="citation"
+data-cites="Cudazzo2011PRB Berkelbach2013PRB Olsen2016PRL GarciaFlores2020PRB"></span>.
+Solving the LS integral equation in momentum space yields binding
+energies and wave functions and enables controlled studies of dielectric
+constants, screening lengths, and effective masses under experimentally
+relevant conditions. Momentum space LS techniques have been successfully
+applied to diverse 2B bound states and provide a flexible route for
+benchmarking and extension <span class="citation"
+data-cites="Hadizadeh2011arXiv HADIZADEH20168 Sahraeian AhnouchHadizadeh2025SciRep"></span>.
+To provide free, broad access, ensure reproducibility, and support
+teaching at scale, we introduce a free, interactive online platform that
+unifies theory, numerics, and visualization in a single browser-based
+venue-no installation required and usable across devices-thereby
+removing platform barriers and making LS workflows openly available to
+students and researchers alike. In this work, we introduce an
+<em>open-access, open-source</em> website for solving the LS integral
+equation for excitonic systems in 2D momentum space, available at <a
+href="https://csu-physics.github.io/2B_2D/"
+class="uri">https://csu-physics.github.io/2B_2D/</a>. The platform
+couples concise theoretical primers with browser-executable Jupyter
+notebooks (JupyterLite/Pyodide) to provide end-to-end workflows from
+parameter setup and quadrature discretization to solution,
+self-consistency checks via Hamiltonian expectation values, convergence
+studies, and publication-ready visualization. Core capabilities include
+(i) computing bound state spectra and wave functions for Coulomb and RK
+interactions; (ii) interactive parameter scans with immediate feedback;
+and (iii) a modular, extensible design, so kernels and models for 2D
+quantum systems can be adapted or extended with minimal effort. Designed
+for advanced undergraduate and graduate instruction as well as research
+prototyping, the site lowers the barrier to LS-based exciton
+calculations by unifying transparent methods, reusable components, and
+intuitive interactivity in a single, freely accessible resource. To
+validate the formalism and support instruction, the website also
+includes pedagogical testbeds that solve the LS equation for 2B
+problems: a hydrogenic system (Coulomb interaction) and a schematic
+deuteron bound state (e.g., Yukawa-type/Malfliet-Tjon (MT)
+interactions). These modules serve as clear numerical benchmarks and
+classroom assets before the same toolkit is applied to excitons using
+the RK interaction.</p>
+<p>The remainder of the paper is organized as follows. Section <a
+href="#sec:ls_2d" data-reference-type="ref"
+data-reference="sec:ls_2d">2</a> presents the theoretical formulation;
+Section <a href="#Numerical_Implementation" data-reference-type="ref"
+data-reference="Numerical_Implementation">3</a> describes the numerical
+implementation; Section <a href="#sec_systems_studied"
+data-reference-type="ref" data-reference="sec_systems_studied">4</a>
+reports applications to 2D hydrogenic, deuteron, and exciton systems;
+Section <a href="#Sec_User_Guide" data-reference-type="ref"
+data-reference="Sec_User_Guide">5</a> outlines the platform architecture
+and user interaction; and Section <a href="#sec_conclusion"
+data-reference-type="ref" data-reference="sec_conclusion">6</a>
+concludes. Appendix <a href="#appendix_Website"
+data-reference-type="ref" data-reference="appendix_Website">7</a>
+summarizes the website development and technical details.</p>
+<h1 id="sec:ls_2d">Lippmann–Schwinger Equation for Two-Body Bound States
+in 2D</h1>
+<p>The starting point for a 2B bound state with reduced mass <span
+class="math inline">\(\mu\)</span> is the time-independent Schrödinger
+equation <span class="math display">\[(H_0 + V)\,|\Psi\rangle =
+E\,|\Psi\rangle,
+  \label{eq:sch}\]</span> where <span class="math inline">\(H_0\)</span>
+is the free Hamiltonian, <span class="math inline">\(V\)</span> is the
+interaction, <span class="math inline">\(E&lt;0\)</span> is the binding
+energy, and <span class="math inline">\(|\Psi\rangle\)</span> is the
+corresponding bound state wave function. Rearranging Eq. <a
+href="#eq:sch" data-reference-type="eqref"
+data-reference="eq:sch">[eq:sch]</a> gives the homogeneous LS equation
+for a bound state<span class="citation"
+data-cites="Hadizadeh2011arXiv HADIZADEH20168 Sahraeian AhnouchHadizadeh2025SciRep"></span>
+<span class="math display">\[|\Psi\rangle = G_0(E)\,V\,|\Psi\rangle,
+  \qquad
+  G_0(E) \equiv \frac{1}{E - H_0},
+  \label{eq:ls_operator}\]</span> which expresses the state in terms of
+the free propagator <span class="math inline">\(G_0(E)\)</span> and the
+interaction. In a momentum basis <span class="math inline">\(|{\mathbf
+p}\rangle\)</span>, adopting the completeness <span
+class="math inline">\(\int \! d^2 p\, |{\mathbf p}\rangle\langle
+{\mathbf p}| = \mathds{1}\)</span>, the LS equation projects to<span
+class="citation" data-cites="PhysRevB.108.035421"></span> <span
+class="math display">\[\psi({\mathbf p}) =
+  \frac{1}{E - \dfrac{p^2}{2\mu}}\,
+  \int_0^\infty \! dp&#39;\, p&#39; \int_0^{2\pi} \! d\phi&#39;\,
+  V({\mathbf p},{\mathbf p}&#39;)\, \psi({\mathbf p}&#39;),
+  \label{eq:LS_vector}\]</span> where <span
+class="math inline">\(\psi({\mathbf p}) \equiv \langle {\mathbf p}|
+\Psi\rangle\)</span> and <span class="math inline">\(V({\mathbf
+p},{\mathbf p}&#39;) \equiv \langle {\mathbf p}| V | {\mathbf p}&#39;
+\rangle\)</span>. For central interactions in 2D, it is convenient to
+separate the angular dependence by a partial-wave (PW) expansion, which
+reduces Eq. <a href="#eq:LS_vector" data-reference-type="eqref"
+data-reference="eq:LS_vector">[eq:LS_vector]</a> to a one-dimensional
+integral equation for each angular-momentum channel <span
+class="math inline">\(m\)</span> <span class="math display">\[\psi_m(p)
+= \frac{1}{E - \dfrac{p^2}{2\mu}}
+  \int_0^\infty \! dp&#39;\, p&#39;\, V_m(p,p&#39;)\, \psi_m(p&#39;).
+  \label{eq:LS_pw}\]</span> The PW-projected kernel can be obtained from
+the angular integration in momentum space, <span
+class="math display">\[\begin{aligned}
+V_m(p, p&#39;) = \int_0^{2\pi} d\phi&#39; \, V(p, p&#39;, \phi&#39;)
+\cos(m \phi&#39;) \equiv
+\int_0^\infty dr r \, J_m(pr) V(r) J_m(p&#39;r).
+\end{aligned}\]</span> with <span class="math inline">\(J_m\)</span> the
+Bessel function of the first kind. The PW representation for each <span
+class="math inline">\(m\)</span> reduces the 2D integral equation to a
+one-dimensional radial form. This framework is used throughout to
+compute 2D bound states, e.g., hydrogenic systems with Coulomb
+interactions and the deuteron with Yukawa-type interactions, and, in
+particular, excitons with the RK interaction, within a momentum-space LS
+scheme.</p>
+<p>A convenient internal consistency check for a numerically obtained 2B
+binding energy and wave function is to compare the eigenvalue <span
+class="math inline">\(E\)</span> from the LS equation with the
+Hamiltonian expectation value, <span class="math inline">\(\langle H
+\rangle = \langle H_0 \rangle + \langle V \rangle\)</span>, evaluated
+using the corresponding momentum-space wave function. The degree of
+agreement between <span class="math inline">\(E\)</span> and <span
+class="math inline">\(\langle H \rangle\)</span> provides a direct
+measure of the numerical accuracy of the method. For a given PW channel
+<span class="math inline">\(m\)</span>, with the wave function
+normalization <span class="math display">\[\int \! d^2p\,
+\psi^2({\mathbf p})
+  = 2\pi \int_0^\infty \! dp\, p\, \psi_m^2(p)
+  = 1.
+  \label{eq:PW_norm}\]</span> The Hamiltonian expectation value,
+expressed in terms of the kinetic and potential contributions, reads
+<span class="math display">\[\begin{aligned}
+  \langle H \rangle
+  &amp;= \langle H_0 \rangle + \langle V \rangle,
+  \label{eq:H_split} \\[3pt]
+  \langle H_0 \rangle
+  &amp;= 2\pi \int_0^\infty \! dp\, p\;
+     \frac{p^2}{2\mu}\, |\psi_m(p)|^2,
+  \label{eq:H0_exp} \\[3pt]
+  \langle V \rangle
+  &amp;= 2\pi \int_0^\infty \! dp\, p
+     \int_0^\infty \! dp&#39;\, p&#39;\;
+     \psi_m(p)\, V_m(p,p&#39;)\, \psi_m(p&#39;) \,.
+  \label{eq:V_exp}
+\end{aligned}\]</span></p>
+<h1 id="Numerical_Implementation">Numerical Implementation</h1>
+<p>To numerically solve the LS integral equation <a href="#eq:LS_pw"
+data-reference-type="eqref" data-reference="eq:LS_pw">[eq:LS_pw]</a> for
+a 2B bound state in 2D, represented in the PW framework, the integral
+equation should be transformed into a discretized form that can be
+solved iteratively or through matrix diagonalization. To efficiently
+handle the integrals, variable transformations are introduced to map the
+infinite domains of momentum <span class="math inline">\(p\)</span>,
+spatial coordinate <span class="math inline">\(r\)</span>, and angle
+<span class="math inline">\(\phi\)</span> onto finite intervals. The
+transformations are defined as: <span class="math display">\[p,p&#39;, r
+= \frac{1+x}{1-x}, \quad \phi&#39; = \pi (1+x), \quad x \in [-1,
+1],\]</span> where <span class="math inline">\(x\)</span> is a variable
+spanning the interval <span class="math inline">\([-1, 1]\)</span>,
+suitable for integration using Gaussian-Legendre quadrature. The
+discretized form of the integral equation for the wave function <span
+class="math inline">\(\psi_m\)</span> becomes an eigenvalue problem:
+<span class="math display">\[\lambda \ \psi_m = {\cal K}(E) \,
+\psi_m,\]</span> where <span class="math inline">\({\cal K}(E)\)</span>
+represents the integral kernel operator dependent on the binding energy
+<span class="math inline">\(E\)</span>. The eigenvalue <span
+class="math inline">\(\lambda\)</span> is used as a criterion to verify
+the solution. The binding energy <span class="math inline">\(E\)</span>
+is determined by solving for the eigenvalue <span
+class="math inline">\(\lambda = 1\)</span>. This involves iteratively
+searching over initial guesses for <span
+class="math inline">\(E\)</span> until convergence is achieved. A
+tolerance of <span class="math inline">\(10^{-6}\)</span> is set for the
+eigenvalue condition, ensuring high accuracy in the computed
+energy.<br />
+The iterative search procedure can be outlined as follows:</p>
+<ol>
+<li><p>Select two initial guesses for the binding energy E.</p></li>
+<li><p>Construct the kernel <span class="math inline">\({\cal
+K}(E)\)</span> for each chosen energy.</p></li>
+<li><p>Solve the eigenvalue problem <span class="math inline">\(\lambda
+\, \psi_m = {\cal K}(E) \, \psi_m\)</span> to obtain <span
+class="math inline">\(\lambda\)</span> and the corresponding wave
+function <span class="math inline">\(\psi_m\)</span> for both initial
+guesses.</p></li>
+<li><p>Using these two initial pairs <span class="math inline">\((E,
+\lambda)\)</span>, perform a linear fit to predict the next energy value
+for which <span class="math inline">\(\lambda = 1\)</span>.</p></li>
+<li><p>Iterate the process with the updated energy values until <span
+class="math inline">\(\lambda\)</span> converges to <span
+class="math inline">\(1\)</span> within the specified
+tolerance.</p></li>
+</ol>
+<p>The kernel <span class="math inline">\({\cal K}(E)\)</span> is
+diagonalized at each step, which allows for the extraction of both the
+eigenvalue <span class="math inline">\(\lambda\)</span> and the wave
+function <span class="math inline">\(\psi_m\)</span>. Efficient
+numerical techniques such as matrix diagonalization, implemented through
+libraries like LAPACK, or iterative solvers like the Lanczos algorithm
+<span class="citation" data-cites="Hadizadeh_PRA85"></span>, can be
+employed for this purpose.</p>
+<h1 id="sec_systems_studied">Systems Studied</h1>
+<p>To ensure the robustness and accuracy of our computational framework,
+a critical first step is validating the numerical methods against
+established benchmarks. For this purpose, we compare our simulated
+results for the 2D hydrogenic atom and the 2D deuteron system with
+well-known theoretical findings. These systems serve as ideal case
+studies: the hydrogenic atom, with its fundamental Coulomb potential,
+provides an exact analytical benchmark for bound states, while the
+deuteron, modeled with the more intricate MT potential, demonstrates the
+framework’s ability to handle complex nuclear interactions. By showing
+strong agreement between our computational outputs and trusted reference
+values, we establish confidence in the accuracy and reliability of our
+algorithms. This rigorous validation provides the essential foundation
+for applying our methods to more complex systems, such as excitons in 2D
+materials, where the RK potential is used to probe the influence of
+screening length and dielectric constants on binding energies and
+wavefunctions.</p>
+<h2 id="hydrogenic-atom-in-2d">Hydrogenic atom in 2D</h2>
+<p>We begin with the 2D hydrogenic system, a well-established case that
+provides an ideal benchmark for testing the accuracy of our numerical
+method. In contrast to its three-dimensional analogue, the 2D system
+exhibits distinctive features in its energy spectrum and wave function
+behavior arising from the reduced dimensionality. In this section, we
+present both analytical and numerical treatments of the problem, working
+in natural units where <span class="math inline">\(\hbar c = e = m =
+1\)</span>. The 2B potential energy between a nucleus of charge <span
+class="math inline">\(Z\)</span> and a single electron in configuration
+space is given by <span class="math display">\[V(r) =
+-\dfrac{Z}{r},\]</span> which can be expressed in momentum space as
+<span class="math display">\[V({\mathbf p}, {\mathbf p}&#39;) =
+\dfrac{-Z}{2\pi \vert {\mathbf q}\vert}, \quad {\mathbf q}= {\mathbf p}-
+{\mathbf p}&#39;.\]</span> The analytical solutions of the LS integral
+equation for the 2B binding energy levels are given in Ref. <span
+class="citation" data-cites="parfitt2002two"></span> <span
+class="math display">\[\label{Eq.E_Hydrogen_exact}
+    E_{exact} = -\dfrac{Z^2 m}{4\left(n + 1/2\right)^2}, \quad n = 0, 1,
+2, \ldots\]</span> The exact energy levels for 2D hydrogenic atoms offer
+a clear reference for comparison. Evaluating the agreement between our
+computed values and the known analytical results allows us to assess the
+reliability of the approach and identify potential issues at an early
+stage. Establishing this validation is essential before extending the
+method to more complex systems, such as excitons or deuterons. The
+results of this comparison are presented in Table <a
+href="#table_hydrogen_BE" data-reference-type="ref"
+data-reference="table_hydrogen_BE">1</a>, showing that our numerical
+values closely match the exact energy levels of the 2D hydrogenic atom.
+The relative errors are very small, less than 0.4% for the ground state
+and the first three excited states, demonstrating the accuracy and
+reliability of our method.</p>
+<div id="table_hydrogen_BE">
+<table>
+<caption>Comparison of analytical (<span
+class="math inline">\(E_{exact}\)</span>) and numerical (<span
+class="math inline">\(E_{num}\)</span>) 2B binding energies, obtained
+from Eqs. <a href="#Eq.E_Hydrogen_exact" data-reference-type="eqref"
+data-reference="Eq.E_Hydrogen_exact">[Eq.E_Hydrogen_exact]</a> and <a
+href="#eq:LS_pw" data-reference-type="eqref"
+data-reference="eq:LS_pw">[eq:LS_pw]</a>, respectively, for the 2D
+hydrogenic atom with partial wave <span
+class="math inline">\(m=0\)</span> and nuclear charge <span
+class="math inline">\(Z=2\)</span>. Calculations employ <span
+class="math inline">\(500\)</span> grid points for the magnitude of the
+relative momentum and <span class="math inline">\(40\)</span> points for
+the angular variables.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">n</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span
+class="math inline">\(E_{exact}\)</span><span class="citation"
+data-cites="parfitt2002two"></span></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span
+class="math inline">\(E_{Num}\)</span></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span
+class="math inline">\(\left(\dfrac{E_{exact} - E_{num}}{E_{exact}}
+\right) \times 100 \%\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-4.00000</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-3.99928</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.01800</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-0.44444</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-0.44441</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.00700</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-0.16000</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-0.16017</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.10625</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-0.08163</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-0.08193</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.36751</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span id="table_hydrogen_BE" label="table_hydrogen_BE"></span></p>
+<p>Fig. <a href="#fig:WF_invers_q" data-reference-type="ref"
+data-reference="fig:WF_invers_q">[fig:WF_invers_q]</a> complements the
+binding‐energy results in Table <a href="#table_hydrogen_BE"
+data-reference-type="ref" data-reference="table_hydrogen_BE">1</a> by
+showing momentum-space hydrogenic wave functions for <span
+class="math inline">\(n=0-3\)</span>. The plots depict <span
+class="math inline">\(\psi^{(n)}_{m}(p)\)</span> versus relative
+momentum <span class="math inline">\(p\)</span>, highlighting how the
+momentum distribution varies with the energy level. The ground state
+exhibits a broader high-<span class="math inline">\(p\)</span>
+distribution, whereas excited states (<span
+class="math inline">\(n=1,2,3\)</span>) develop nodes and shift weight
+toward lower <span class="math inline">\(p\)</span>, consistent with
+their larger spatial extent in configuration space.</p>
+<div class="center">
+<p><embed src="Fig1.pdf" /> <span id="fig:WF_invers_q"
+label="fig:WF_invers_q"></span></p>
+</div>
+<h2 id="deuteron-in-2d">Deuteron in 2D</h2>
+<p>This section presents the numerical simulation of the deuteron, the
+bound state of one proton and one neutron, in 2D using the MT potential,
+written as a sum of repulsive and attractive Yukawa terms, <span
+class="math display">\[V(r) = V_r \frac{e^{-\mu_r r}}{r} + V_a
+\frac{e^{-\mu_a r}}{r},\]</span> where <span
+class="math inline">\(V_r\)</span> and <span
+class="math inline">\(V_a\)</span> are the strengths of the repulsive
+and attractive components, respectively, and <span
+class="math inline">\(\mu_r\)</span> and <span
+class="math inline">\(\mu_a\)</span> are the corresponding range
+parameters. The potential transforms to momentum space as <span
+class="math display">\[V({\mathbf p}, {\mathbf p}&#39;) = \frac{1}{2\pi}
+\left( \frac{V_r}{\sqrt{q^2 + \mu_r^2}} + \frac{V_a}{\sqrt{q^2 +
+\mu_a^2}} \right), \quad q = | {\mathbf p}- {\mathbf p}&#39; |.\]</span>
+The parameter sets for the two MT models used in our calculations are
+listed in Table <a href="#table:MT-I-parameters"
+data-reference-type="ref" data-reference="table:MT-I-parameters">2</a>,
+and the corresponding momentum-space potentials <span
+class="math inline">\(V(q)\)</span> are plotted in Fig. <a
+href="#figure_MT" data-reference-type="ref"
+data-reference="figure_MT">[figure_MT]</a> as functions of the momentum
+transfer <span class="math inline">\(q\)</span>.</p>
+<div id="table:MT-I-parameters">
+<table>
+<caption>Parameter sets for the two MT potential models used in our
+calculations.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">MT-model</th>
+<th style="text-align: center;"><span class="math inline">\(V_a \,
+\text{(MeV  fm)}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\mu_a \,
+(\text{fm}^{-1})\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(V_r \,
+\text{(MeV  fm)}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\mu_r \,
+(\text{fm}^{-1})\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Model-1</td>
+<td style="text-align: center;"><span
+class="math inline">\(-600.00\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1.550\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1438.7228\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(3.21\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Model-2</td>
+<td style="text-align: center;"><span
+class="math inline">\(-600.00\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1.550\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span id="table:MT-I-parameters"
+label="table:MT-I-parameters"></span></p>
+<div class="center">
+<p><embed src="Fig2.pdf" /> <span id="figure_MT"
+label="figure_MT"></span></p>
+</div>
+<p>In our calculations, we use the nucleon mass with <span
+class="math inline">\(\hbar^{2}/m = 41.47\ \text{MeV·fm}^2\)</span>. As
+shown in Table <a href="#Deuteron_bidning_energy"
+data-reference-type="ref"
+data-reference="Deuteron_bidning_energy">3</a>, the computed binding
+energies for the 2D deuteron differ markedly between the two MT models.
+This is expected: Model 1, which superposes repulsive and attractive
+Yukawa terms, supports only a single (ground) bound state, whereas Model
+2, which is purely attractive, supports two deeper bound states (ground
+and first excited). The corresponding momentum-space wave functions are
+shown in Fig. <a href="#fig_deuteron" data-reference-type="ref"
+data-reference="fig_deuteron">[fig_deuteron]</a>. The left panel (Model
+1) displays a single ground-state wave function, <span
+class="math inline">\(\psi(p)\)</span>, versus relative momentum <span
+class="math inline">\(p\)</span>. The right panel (Model 2) presents two
+ground and excited bound states, labeled <span
+class="math inline">\(n=0\)</span> and <span
+class="math inline">\(n=1\)</span>.</p>
+<div id="Deuteron_bidning_energy">
+<table>
+<caption>Calculated 2D deuteron binding energies for the two MT
+potential models, using <span class="math inline">\(200\)</span> grid
+points for the 2B relative-momentum magnitude and <span
+class="math inline">\(101\)</span> grid points for the angular
+variables.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(E_{d}\)</span> (MeV)</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span
+class="math inline">\(E^{(0)}_{d}\)</span> (MeV)</th>
+<th style="text-align: center;"><span
+class="math inline">\(E^{(1)}_{d}\)</span> (MeV)</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Model-1</td>
+<td style="text-align: center;"></td>
+<td colspan="2" style="text-align: center;">Model-2</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(-6.246\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">\(-7806\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-312.4\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="center">
+<p><embed src="Fig3a.pdf" /> <embed src="Fig3b.pdf" /> <span
+id="fig_deuteron" label="fig_deuteron"></span></p>
+</div>
+<h2 id="excitons-in-2d-materials">Excitons in 2D Materials</h2>
+<p>Having validated the framework on 2D hydrogenic atoms and the
+deuteron, we now apply it to excitons-bound electron-hole pairs formed
+by Coulomb attraction that play a central role in the optical response
+of 2D materials. In this section we solve the LS integral equation for
+excitons using the RK potential. This yields exciton binding energies
+and wave functions, providing insight needed to predict exciton behavior
+in practical devices and to inform the design of materials with targeted
+optical properties. The RK potential accounts for nonlocal,
+distance-dependent dielectric screening in 2D materials, and thus models
+electron-hole interactions more accurately than a bare Coulomb
+potential. The explicit forms of the RK potential in configuration and
+momentum space are <span class="math display">\[\begin{aligned}
+V(r) &amp;=&amp; -\dfrac{\alpha \hbar c \pi}{2 r_0
+\kappa}\left[H_0\left(\dfrac{r}{r_0}\right)-Y_0\left(\dfrac{r}{r_0}\right)\right],
+\cr
+%
+V({\mathbf p},{\mathbf p}&#39;) &amp;=&amp; - \dfrac{1}{4\pi^2}
+\left(  \dfrac{1}{4\pi \epsilon_0 \kappa} \dfrac{2\pi e^2}{q(1 + r_0  q
+/\kappa )}\right), \quad q = | {\mathbf p}- {\mathbf p}&#39; |,
+\end{aligned}\]</span> where <span class="math inline">\(H_0\)</span>
+and <span class="math inline">\(Y_0 denote\)</span>, respectively, the
+order-zero Struve function and the Bessel function of the second kind.
+Here <span class="math inline">\(r\)</span> denotes the electron-hole
+separation, <span class="math inline">\(r_0\)</span> is the screening
+length, and <span
+class="math inline">\(\kappa=(\epsilon_1+\epsilon_2)/2\)</span> is the
+average environmental dielectric constant. The factor <span
+class="math inline">\(\epsilon_0/e^2=\big(4\pi\,\alpha\,\hbar
+c\big)^{-1}\)</span> converts between the fine-structure constant and
+energy units. We use <span
+class="math inline">\(\alpha^{-1}=137.035999084\)</span>, <span
+class="math inline">\(\hbar c=1973.269804\
+\text{eV}\!\cdot\!\text{\AA}\)</span>, and the electron rest mass <span
+class="math inline">\(m_0=0.510998950\ \text{MeV}\)</span>. The
+material-dependent RK parameters used in our calculations are summarized
+in Table <a href="#tab:rk_params" data-reference-type="ref"
+data-reference="tab:rk_params">4</a>.</p>
+<div id="tab:rk_params">
+<table>
+<caption>Electron-hole RK potential parameters for monolayer TMDs,
+electron and hole effective masses <span
+class="math inline">\(m_e\)</span>, <span
+class="math inline">\(m_h\)</span> (in units of <span
+class="math inline">\(m_0\)</span>) and screening length <span
+class="math inline">\(r_0\)</span> (Å), for MoS<span
+class="math inline">\(_2\)</span>, MoSe<span
+class="math inline">\(_2\)</span>, WS<span
+class="math inline">\(_2\)</span>, and WSe<span
+class="math inline">\(_2\)</span>; values from density functional theory
+in Ref. <span class="citation"
+data-cites="PhysRevB.92.205418"></span>.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Substance</th>
+<th style="text-align: center;"><span class="math inline">\(m_e \
+(m_0)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(m_h \
+(m_0)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(r_0\)</span>
+(Å)</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">MoS<span
+class="math inline">\(_2\)</span></td>
+<td style="text-align: center;">0.47</td>
+<td style="text-align: center;">0.54</td>
+<td style="text-align: center;">44.6814</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MoSe<span
+class="math inline">\(_2\)</span></td>
+<td style="text-align: center;">0.55</td>
+<td style="text-align: center;">0.59</td>
+<td style="text-align: center;">53.1624</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WS<span
+class="math inline">\(_2\)</span></td>
+<td style="text-align: center;">0.32</td>
+<td style="text-align: center;">0.35</td>
+<td style="text-align: center;">40.1747</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WSe<span
+class="math inline">\(_2\)</span></td>
+<td style="text-align: center;">0.34</td>
+<td style="text-align: center;">0.36</td>
+<td style="text-align: center;">47.5701</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span id="tab:rk_params" label="tab:rk_params"></span></p>
+<p>Our exciton binding energies for monolayer MoS<span
+class="math inline">\(_2\)</span>, MoSe<span
+class="math inline">\(_2\)</span>, WS<span
+class="math inline">\(_2\)</span>, and WSe<span
+class="math inline">\(_2\)</span>, computed with the RK momentum-space
+potential using the parameters in Table <a href="#tab:rk_params"
+data-reference-type="ref" data-reference="tab:rk_params">4</a> and
+obtained by solving the LS integral equation <a href="#eq:LS_pw"
+data-reference-type="eqref" data-reference="eq:LS_pw">[eq:LS_pw]</a>,
+are reported in Table <a href="#table:exciton_bindings"
+data-reference-type="ref" data-reference="table:exciton_bindings">5</a>.
+As a numerical self-consistency check, we also compare each binding
+energy with the Hamiltonian expectation value <span
+class="math inline">\(\langle H\rangle=\langle H_0\rangle+\langle
+V\rangle\)</span> evaluated from the corresponding wave function. In all
+four materials, the relative percentage differences are well below <span
+class="math inline">\(3 \cdot 10^{-6}\%\)</span>, indicating that the
+momentum/angle discretization, kernel construction, and diagonalization
+are converged and the solutions are numerically reliable.</p>
+<div id="table:exciton_bindings">
+<table>
+<caption>Comparison of exciton binding energies for monolayer TMDs with
+the corresponding Hamiltonian expectation values, <span
+class="math inline">\(\langle H\rangle=\langle H_0\rangle+\langle
+V\rangle\)</span>, along with their relative percentage differences.
+Calculations use <span class="math inline">\(500\)</span> grid points in
+the relative momentum magnitude <span class="math inline">\(p\)</span>
+and <span class="math inline">\(40\)</span> in the azimuthal angle.
+</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span
+class="math inline">\(E_{2B}\)</span> (meV)</th>
+<th style="text-align: center;"><span class="math inline">\(\langle H_0
+\rangle\)</span> (meV)</th>
+<th style="text-align: center;"><span class="math inline">\(\langle
+V\rangle\)</span> (meV)</th>
+<th style="text-align: center;"><span class="math inline">\(\langle
+H\rangle\)</span> (meV)</th>
+<th style="text-align: center;"><span
+class="math inline">\(\vert  \frac{\langle H \rangle- E_{2B}}{E_{2B}}
+\vert  \times 100 \%\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">MoS<span
+class="math inline">\(_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-529.821\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(135.816\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-665.637\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-529.821\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(5.73 \cdot
+10^{-7}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">MoSe<span
+class="math inline">\(_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-480.553\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(116.507\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-597.060\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-480.553\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.40 \cdot
+10^{-7}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">WS<span
+class="math inline">\(_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-512.597\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(144.819\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-657.416\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-512.597\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2.45 \cdot
+10^{-6}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">WSe<span
+class="math inline">\(_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-460.118\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(124.665\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-584.783\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-460.118\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.38 \cdot
+10^{-7}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span id="table:exciton_bindings"
+label="table:exciton_bindings"></span></p>
+<p>In Table <a href="#table_exciton_mesh" data-reference-type="ref"
+data-reference="table_exciton_mesh">6</a>, we show the convergence of
+exciton binding energies for the TMDs as a function of the number of
+mesh points in the relative momentum magnitude <span
+class="math inline">\(N_p\)</span>, together with an extrapolation to
+<span class="math inline">\(1/N_p \to 0\)</span> (last column). The
+extrapolated values are in excellent agreement with Refs. <span
+class="citation"
+data-cites="PhysRevB.101.195417 PhysRevB.111.085404"></span> across all
+materials, with relative percentage differences below <span
+class="math inline">\(0.3\%\)</span>.</p>
+<div id="table_exciton_mesh">
+<table>
+<caption>Exciton binding energies (meV) for different numbers of mess
+points.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(N_p\)</span></th>
+<th style="text-align: center;">500</th>
+<th style="text-align: center;">600</th>
+<th style="text-align: center;">700</th>
+<th style="text-align: center;">800</th>
+<th style="text-align: center;"><span class="math inline">\(\to
+\infty\)</span></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Mo<span
+class="math inline">\(\text{S}_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-529.821\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-527.901\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-526.718\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-525.955\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-524.872\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">MoSe<span
+class="math inline">\(_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-480.553\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-478.640\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-477.460\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-476.700\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-475.753\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">W<span
+class="math inline">\(\text{S}_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-512.597\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-510.759\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-509.613\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-508.866\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-507.613\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">WSe<span
+class="math inline">\(_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-460.118\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-458.303\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-457.170\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-456.426\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-454.772\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span id="table_exciton_mesh" label="table_exciton_mesh"></span></p>
+<h1 id="Sec_User_Guide">User Guide: Accessing, Editing, and Running the
+Interactive Code</h1>
+<p>The website hosts runnable Jupyter notebooks (via
+JupyterLite/Pyodide), so you can explore 2B quantum bound state problems
+in 2D directly in your browser-no installation required.</p>
+<h2 id="getting-in">Getting In</h2>
+<ol>
+<li><p>Navigate to <a href="https://csu-physics.github.io/2B_2D/"
+class="uri">https://csu-physics.github.io/2B_2D/</a>.</p></li>
+<li><p>From the homepage, select a notebook from the top menu bar (e.g.,
+<em>Hydrogen in 2D</em>, <em>Deuteron in 2D</em>, <em>Exciton in
+2D</em>).</p></li>
+<li><p>Allow a few seconds for the Python runtime to load.</p></li>
+<li><p>From the file browser in the left sidebar, open a Jupyter
+notebook (e.g., <em>Hydrogen<span
+class="math inline">\(_-\)</span>2D.ipynb</em>, <em>Deuteron<span
+class="math inline">\(_-\)</span>2D.ipynb</em>, <em>Exciton<span
+class="math inline">\(_-\)</span>2D.ipynb</em>).</p></li>
+</ol>
+<p><strong>Visual cue:</strong> You will see the Jupyter toolbar (Run,
+Kernel, etc.) and executable code cells.</p>
+<h2 id="changing-input-parameters">Changing Input Parameters</h2>
+<p>Parameters are defined near the top of each notebook in
+<em>Parameters</em> section. Edit them, then re-run the cell.</p>
+<h4 id="a-mesh-discretization">(A) Mesh / Discretization</h4>
+<div class="python">
+<p># Discretization (edit these) Np = 300 # number of momentum points
+Nphi = 40 # number of angular points</p>
+</div>
+<h4 id="b-partial-wave-channel">(B) Partial-Wave Channel</h4>
+<div class="python">
+<p># Quantum numbers m_angular = 0 # partial-wave index (e.g., 0, 1, 2,
+...)</p>
+</div>
+<h4 id="c-potential-parameters-examples">(C) Potential Parameters
+(examples)</h4>
+<div class="python">
+<p># Coulomb (Hydrogenic) Z = 2</p>
+<p># Malfliet-Tjon (Deuteron) Vr = 1438.72280 # MeV.fm Mr = 3.21 # fm^-1
+Va = -600.0 # MeV.fm Ma = 1.550 # fm^-1</p>
+<p># Rytova-Keldysh (Exciton) m_e = 0.55 * me # Electron mass in eV for
+MoSe2 m_h = 0.59 * me # Hole mass in eV for MoSe2 r_0 = 53.1624 #
+screening length for MoSe2</p>
+</div>
+<p><strong>Visual cue:</strong> Parameter cells are labeled
+<em>Parameters</em>. Start with defaults and increase (Np, Nphi)
+gradually for convergence studies.</p>
+<h2 id="running-the-code">Running the Code</h2>
+<ul>
+<li><p><strong>Run a single cell:</strong> click the cell and press
+<code>Shift+Enter</code> (or use the Run button).</p></li>
+<li><p><strong>Run the entire notebook:</strong> <em>Kernel</em> <span
+class="math inline">\(\rightarrow\)</span> <em>Restart Kernel and Run
+All Cells</em> (recommended after parameter changes).</p></li>
+<li><p><strong>Interrupt a long run:</strong> <em>Kernel</em> <span
+class="math inline">\(\rightarrow\)</span> <em>Interrupt</em>.</p></li>
+</ul>
+<p><strong>Visual cue:</strong> A cell shows <code>[Busy]</code> while
+running, then <code>[Idle]</code> as execution completes.</p>
+<h2 id="expected-outputs">Expected Outputs</h2>
+<h4 id="energy-search-binding-energy">(1) Energy Search / Binding
+Energy</h4>
+<p>During the iterative solution of the LS equation, you will see a
+short search log. A typical printout for exciton:</p>
+<div class="python">
+<p>"Search 1 | BE2 = -0.45 eV, Lambda = (1.0715255450591985+0j)" "Search
+2 | BE2 = -0.5 eV, Lambda = (0.984399584777091+0j)" "Search 3 | BE2 =
+-0.49104720615279535 eV, Lambda = (0.9988380571337887+0j)" "Search 4 |
+BE2 = -0.4903267258494484 eV, Lambda = (1.0000203651234234+0j)" "Search
+5 | BE2 = -0.4903391360424188 eV, Lambda = (0.9999999738571008+0j)"
+"Search 6 | BE2 = -0.4903391201317628 eV, Lambda =
+(0.9999999999994108+0j)"</p>
+<p>"E = -0.4903391201317628 eV"</p>
+</div>
+<p><strong>Visual cue:</strong> If convergence is slow, lower <span
+class="math inline">\(Np\)</span> and <span
+class="math inline">\(Nphi\)</span> and then run the cell again.</p>
+<h4 id="hamiltonian-expectation-value-check-only-for-exciton">(2)
+Hamiltonian Expectation Value Check (only for exciton)</h4>
+<p>Each calculated binding energy <span class="math inline">\(E\)</span>
+is checked against the expectation value <span
+class="math inline">\(\langle H\rangle = \langle H_0\rangle + \langle
+V\rangle\)</span> computed from the corresponding wave function. A
+typical printout for exciton:</p>
+<div class="python">
+<p>"E = -0.4903391201317628 eV" "&lt;H0&gt; = 1.182779e-01 eV"
+"&lt;V&gt; = -6.086170e-01 eV" "&lt;H&gt; = -4.903391e-01 eV" "Error =
+0.000000001</p>
+</div>
+<p><strong>Expectation:</strong> The relative percentage difference
+should be very small (near machine precision for well converged binding
+energies), indicating numerical consistency.</p>
+<h4 id="wave-function-plots">(3) Wave-Function Plots</h4>
+<p>You will see momentum space wave functions <span
+class="math inline">\(\psi^{(n)}_{m}(p)\)</span> for ground and, when
+present, excited states. A typical output wave function plot for exciton
+is shown in Fig. <a href="#fig_exciton_wf" data-reference-type="ref"
+data-reference="fig_exciton_wf">[fig_exciton_wf]</a>.</p>
+<div class="center">
+<p><img src="Fig4.png" alt="image" /> <span id="fig_exciton_wf"
+label="fig_exciton_wf"></span></p>
+</div>
+<p><strong>Visual cue:</strong> Ground states are typically broader in
+<span class="math inline">\(p\)</span>; excited states exhibit nodes and
+shift weight toward lower <span class="math inline">\(p\)</span> as
+spatial extent increases.</p>
+<h2 id="saving-or-resetting-your-work">Saving or Resetting Your
+Work</h2>
+<ul>
+<li><p><strong>Download your edits:</strong> Right-click a notebook
+(<span><em>i.e. Exciton<span
+class="math inline">\(_-\)</span>2D.ipynb</em></span>) and choose
+<em>Download</em>.</p></li>
+<li><p><strong>Save figures:</strong> Select the plot, then drag and
+drop it onto your device.</p></li>
+<li><p><strong>Reset to original:</strong> Refresh the page (sessions
+are ephemeral).</p></li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><p><strong>Blank or unresponsive:</strong> Ensure JavaScript is
+enabled; refresh the page.</p></li>
+<li><p><strong>Memory or speed issues:</strong> Reduce Np or Nphi; close
+heavy tabs.</p></li>
+<li><p><strong>Stuck kernel:</strong> <em>Kernel</em> <span
+class="math inline">\(\rightarrow\)</span> <em>Restart
+Kernel</em>.</p></li>
+<li><p><strong>No changes after edits:</strong> <em>Run</em> <span
+class="math inline">\(\rightarrow\)</span> <em>Run All
+Cells</em>.</p></li>
+</ul>
+<h2 id="quick-checklist">Quick Checklist</h2>
+<ol>
+<li><p>Open a notebook and <em>Run All</em> once.</p></li>
+<li><p>Edit <code>Np</code>, <code>Nphi</code>, <code>m</code>, and
+potential parameters.</p></li>
+<li><p><em>Restart Kernel and Run All Cells</em>.</p></li>
+<li><p>Confirm convergence of energy; check <span
+class="math inline">\(\langle H\rangle\)</span> vs. <span
+class="math inline">\(E\)</span> (small relative percentage difference);
+inspect wave-function plots.</p></li>
+<li><p>Download the notebook or images if you wish to keep
+results.</p></li>
+</ol>
+<h1 id="sec_conclusion">Conclusion</h1>
+<p>We have released an open, browser-based platform for solving the
+Lippmann-Schwinger equation in two dimensions at <a
+href="https://csu-physics.github.io/2B_2D/">https://csu-physics.github.io/2B<span
+class="math inline">\(_-\)</span>2D/</a>. The website delivers
+executable Jupyter notebooks (via JupyterLite/Pyodide) that implement
+the full workflow, from parameter setup and quadrature discretization to
+numerical solution and binding energy calculations, validation via the
+Hamiltonian expectation value, and visualization of wave functions. Case
+studies for the 2D hydrogenic atom (Coulomb), the deuteron
+(Malfliet-Tjon), and excitons (Rytova-Keldysh) provide ready-to-run,
+momentum-space implementations that connect theory with computation.
+Hosting on GitHub Pages ensures free, immediate access without local
+installation, while the open repository invites community review and
+contributions (issues and pull requests). This model promotes
+reproducibility, inclusivity, and rapid iteration on methods, examples,
+and documentation. For education, the platform supports active learning
+with edit-and-run examples, convergence studies, and interpretive plots
+that help students bridge abstract quantum concepts with concrete
+numerical results. For research, it offers a transparent, reproducible
+environment for prototyping kernels, testing discretizations, and
+benchmarking bound state solvers in 2D, lowering the barrier to entry
+for new investigations of excitons and related 2B problems in atomically
+thin materials.</p>
+<h1 id="appendix_Website">Website Development and Technical Details</h1>
+<p>The interactive platform for solving the LS integral equation in 2D
+momentum space is hosted on GitHub Pages at <a
+href="https://csu-physics.github.io/2B_2D/">https://csu-physics.github.io/2B<span
+class="math inline">\(_-\)</span>2D/</a>, providing free, browser-based
+access with no local installation. Hosting on GitHub ensures version
+control, transparency, and community contributions through issues and
+pull requests, enabling continuous improvement (e.g., new case studies
+or numerical schemes) while keeping the resource openly accessible. The
+website is organized as executable Jupyter notebooks (Python) that
+implement the full workflow: importing required libraries (e.g.,
+NumPy/SciPy for numerics and Matplotlib for plots), setting initial
+parameters (physical constants, material properties, grid extents, and
+quadrature orders), applying Gauss-Legendre quadrature to discretize the
+continuous variables (relative distance, relative momentum, and angular
+coordinates), assembling and solving the LS integral equation,
+calculating binding energies, visualizing wave functions, and performing
+parameter sweeps. The learning path includes a brief refresher on the
+Schródinger equation and the LS equation in momentum space, with
+ready-to-run 2D implementations. Case studies demonstrate the framework
+for a 2D hydrogenic atom (Coulomb), a 2D deuteron (Malfliet-Tjon), and a
+2D exciton (Rytova-Keldysh).</p>
+<h2 id="front-end-implementation">Front-End Implementation</h2>
+<h3 id="overview-of-website-interface-and-user-interaction">Overview of
+Website Interface and User Interaction</h3>
+<p>The website was designed to be easy to use and focused on giving
+users an interactive experience. The layout of the website is simple and
+intuitive, allowing users to easily navigate the different sections, and
+interactive tools are built right into the pages, meaning users can run
+code, adjust parameters, and immediately see results, all without
+needing to leave the website. This design philosophy aims to minimize
+cognitive load and maximize engagement, allowing students to focus on
+the physics concepts rather than the mechanics of the platform.</p>
+<h3
+id="description-of-interactive-components-visualization-tools-and-user-controls">Description
+of Interactive Components, Visualization Tools, and User Controls</h3>
+<p>The website’s interactivity is delivered through embedded Jupyter
+notebooks that run entirely in the browser via JupyterLite (Python
+kernel powered by Pyodide). Users can edit and execute code on the page,
+adjust model inputs (e.g., potential parameters, and the number of mesh
+points for momentum/angle discretization), and immediately recompute
+binding energies and wave-function plots. <strong>User controls and
+visualization:</strong> Inputs are displayed as code cells in the
+Jupyter Notebook, and results update on run. Plots rendered inline using
+Matplotlib, enabling quick comparisons and exploratory analysis.
+<strong>Environment and workflow:</strong> No installation is required;
+notebooks load in seconds and run fully client-side. Users can open
+hosted examples, modify them, and see results in real-time. The
+environment supports multiple kernels and lightweight consoles for rapid
+experiments, providing a smooth, self-contained workflow for learning
+and exploration.</p>
+<h3 id="technologies-used">Technologies Used</h3>
+<p>The website’s frontend is built with Next.js (React on Node.js),
+which provides routing, build tooling, and both server-side rendering
+(SSR) and static-site generation (SSG) for fast, reliable delivery.
+After implementing the core UI in Next.js, we integrated the interactive
+computation environment by embedding hosted Jupyter notebooks in
+iframes. This approach cleanly separates the web application
+(navigation, layout, performance) from the notebook runtime (code
+execution and visualization), while allowing the interactive components
+to appear seamlessly within the website’s pages.</p>
+<h2 id="back-end-implementation">Back-End Implementation</h2>
+<h3 id="hosting-and-deployment-on-github-pages">Hosting and Deployment
+on GitHub Pages</h3>
+<p>We host the website on GitHub Pages for a simple, no-cost, and
+tightly integrated workflow. Changes pushed to the repository trigger an
+automatic build and deploy (via GitHub Pages/GitHub Actions), so the
+website stays current without manual steps or separate infrastructure.
+Because the website is served as static HTTPS content with CDN caching,
+it loads quickly and reliably, and requires no application server or
+container orchestration. This lightweight deployment model keeps
+maintenance minimal and aligns with our goal of providing an easily
+accessible, always-available educational resource.</p>
+<h3 id="technical-overview-of-jupyter-notebook-usage">Technical Overview
+of Jupyter Notebook Usage</h3>
+<p>We build the interactive notebooks with JupyterLite and host them
+alongside the website, then embed each notebook into the Next.js pages
+via <code>&lt;iframe&gt;</code> so students can open, edit, and run code
+directly in the browser-no installs required. JupyterLite provides a
+full JupyterLab interface that runs entirely client-side: a Python
+kernel powered by Pyodide (WebAssembly) executes in a Web Worker,
+enabling numerical computing, plotting, and widget-based interactivity
+within the page. For this project we started from an open-source
+JupyterLite template (GitHub) and tailored it to our content. To keep
+sessions clean and secure, we disabled persistence, so any edits exist
+only for the current session and are not saved to the server. <em>Notes
+on capabilities and limits:</em> Browser-based Python is ideal for
+teaching and demos but has constraints: available memory is limited,
+package availability is narrower than a full desktop Python, filesystem
+access is sandboxed, and heavy workloads may run more slowly than native
+execution. Despite these trade-offs, JupyterLite delivers a fast,
+zero-setup environment that’s well-suited to our instructional
+goals.</p>
+<h1 class="unnumbered" id="data-availability">Data availability</h1>
+<p>All codes and data that support the findings of this study are
+publicly available on the project website at <a
+href="https://csu-physics.github.io/2B_2D/"
+class="uri">https://csu-physics.github.io/2B_2D/</a>. For any additional
+information or questions, please contact the corresponding author.</p>
+<h1 class="unnumbered" id="funding">Funding</h1>
+<p>This research was supported by the National Science Foundation under
+Grant Nos. NSF-OIA-2430293 and NSF-EES-2436204, awarded to Central State
+University.</p>
+<h1 class="unnumbered" id="author-contributions-statement">Author
+contributions statement</h1>
+<p>M.R.H. designed and directed the project; M.R.H. and K.M. developed
+the theoretical formalism and implemented the computational codes; K.A.
+developed the interactive GitHub website. All authors discussed the
+results and contributed to the final manuscript.</p>
+<h1 class="unnumbered" id="competing-interests">Competing interests</h1>
+<p>The authors declare no competing interests.</p>
+<h1 class="unnumbered" id="additional-information">Additional
+information</h1>
+<p>Correspondence and requests for materials should be addressed to
+M.R.H.</p>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"0357a45f23a943f08700f7f9af191ee6","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
