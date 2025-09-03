@@ -10,7 +10,7 @@ export default function Home() {
       <Script
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
         type="text/javascript"></Script>
-      {/* <Banner /> */}
+      <Banner />
       <div  >
 
         <section className="px-1 md:px-14 lg:px-28 my-4" >
