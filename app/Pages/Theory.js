@@ -4,7 +4,7 @@ import Script from "next/script";
 
 const Lps = () => {
   return (
-    <div id='lps' className='scroll-mt-20' >
+    <div id='Lippmann–Schwinger' className='scroll-mt-20' >
       <h2 className=" text-lg sm:text-xl" >Lippmann–Schwinger Equation for 2B Bound States in 2D</h2>
       <p>
         The starting point for a 2B bound state with reduced mass <span className="math inline">\(\mu\)</span> is the time-independent Schrödinger equation <span className="math display">\[(H_0 + V)\,|\Psi\rangle = E\,|\Psi\rangle\]</span>
@@ -89,7 +89,7 @@ const Lps = () => {
 
 const NumImp = () => {
   return (
-    <div id='NumImp' className='scroll-mt-20'>
+    <div id='Numerical-Implementation' className='scroll-mt-20'>
       <h2  className=" text-lg sm:text-xl" >Numerical Implementation</h2>
       <p>To numerically solve the LS integral equation  for
         a 2B bound state in 2D, represented in the PW framework, the integral

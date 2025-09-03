@@ -8,7 +8,7 @@ import Table_6 from "../Equations/Table_6.png"
 import Image from "next/image";
 const Hydro = () => {
     return (
-        <div id="Hydro" className='scroll-mt-20' >
+        <div id="Hydrogen" className='scroll-mt-20' >
             <h2 className=" text-lg sm:text-xl" >Hydrogenic atom in 2D</h2>
             <p>We begin with the 2D hydrogenic system, a well-established case that
                 provides an ideal benchmark for testing the accuracy of our numerical
@@ -52,7 +52,7 @@ const Hydro = () => {
 }
 const Deutro = () => {
     return (
-        <div id="Deutro" className='scroll-mt-20' >
+        <div id="Deuteron" className='scroll-mt-20' >
             <h2 className=" text-lg sm:text-xl" >Deuteron in 2D</h2>
             <p>
                 This section presents the numerical simulation of the deuteron, the
@@ -104,7 +104,7 @@ const Deutro = () => {
 
 const Excit = () => {
     return (
-        <div id="Excit" className='scroll-mt-20' >
+        <div id="Exciton" className='scroll-mt-20' >
             <h2 className=" text-lg sm:text-xl" >Excitons in 2D Materials</h2>
             <p className=" text-start" >
                 Having validated the framework on 2D hydrogenic atoms and the

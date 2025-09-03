@@ -5,7 +5,9 @@ const About = () => {
             {/* className="flex flex-row p-0 items-center md:px-8 lg:px-12" */}
             {/* className="leading-6 md:px-8 lg:px-12 py-2 text-lg" */}
             <div  >
-                <h1 className=" text-xl sm:text-2xl" >Quantum Two-Body Bound States in Two Dimensions: Analytical and Numerical Perspectives</h1>
+
+                
+                <h1 className=" text-xl sm:text-2xl" >Open-source Interactive Website for Exciton modeling via the lippmann-schwinger equation: Solve 2d quantum bound states in your browser </h1>
             </div>            
             <p >This website provides an open, browser-based platform for solving the Lippmann–Schwinger (LS) equation in two dimensions.
                 It delivers executable Jupyter notebooks that take users from parameter setup and Gauss–Legendre discretization to numerical

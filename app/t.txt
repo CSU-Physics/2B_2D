@@ -1,0 +1,21 @@
+<!-- Default Statcounter code for CSU computational projects
+https://csu-physics.github.io
+CSU Physics
+Projects Each project is designed to be interactive, serving both educational purposes and enhancing public knowledge. For more detailed information and to engage with these interactive projects, please click on the name of each project listed below. Explore, learn, and discover the exciting world of computational physics with us at Central State University!
+csu-physics.github.io
+-->
+<script type="text/javascript">
+var sc_project=13006461; 
+var sc_invisible=1; 
+var sc_security="3ab8d0c3"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13006461/0/3ab8d0c3/1/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code —>

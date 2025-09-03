@@ -34,13 +34,13 @@ export default function Navbar() {
               tabIndex="-1"
             >
               <Link
-                href="#lps"
+                href="#Lippmann–Schwinger"
                 className="block px-3 py-2 hover:bg-gray-100 rounded-md select-none outline-none"
               >
                 Lippmann–Schwinger Equation
               </Link>
               <Link
-                href="#NumImp"
+                href="#Numerical-Implementation"
                 className="block px-3 py-2 hover:bg-gray-100 rounded-md select-none cursor-pointer"
               >
                 Numerical Implementation
@@ -58,19 +58,19 @@ export default function Navbar() {
               tabIndex="-1"
             >
               <Link
-                href="#Hydro"
+                href="#Hydrogen"
                 className="block px-3 py-2 hover:bg-gray-100 rounded-md select-none outline-none"
               >
                 Hydrogen in 2D
               </Link>
               <Link
-                href="#Deutro"
+                href="#Deuteron"
                 className="block px-3 py-2 hover:bg-gray-100 rounded-md select-none outline-none"
               >
                 Deuteron in 2D
               </Link>
               <Link
-                href="#Excit"
+                href="#Exciton"
                 className="block px-3 py-2 hover:bg-gray-100 rounded-md select-none outline-none"
               >
                 Exciton in 2D
@@ -79,13 +79,13 @@ export default function Navbar() {
           </div>
 
           <Link
-            href=""
+            href="#Guide"
             className="hover:text-blue-600 select-none outline-none"
           >
             Guide
           </Link>
           <Link
-            href=""
+            href="#Citation"
             className="hover:text-blue-600 select-none outline-none"
           >
             Cite this work

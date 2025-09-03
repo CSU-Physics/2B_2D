@@ -4,6 +4,7 @@ import Cases from "./Pages/Cases";
 import Theory from "./Pages/Theory";
 import Script from "next/script";
 import Guide from "./Pages/Guide";
+import Citation from "./Pages/Citation";
 export default function Home() {
   return (
     <main className="max-w-screen flex flex-col justify-between items-center  ">
@@ -17,6 +18,8 @@ export default function Home() {
           <About />
           <Theory />
           <Cases />
+          <Guide />
+          <Citation/>
         </section>
 
 {/* <Guide/> */}

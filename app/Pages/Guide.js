@@ -6,7 +6,7 @@ import Graph from "../Equations/Graph.png"
 
 const Guide = () => {
     return (
-        <div>
+        <div id="Guide" className='scroll-mt-20' >
             <h1 className=" text-xl sm:text-2xl">User Guide: Accessing, Editing, and Running the Interactive Code</h1>
             <p>The website hosts runnable Jupyter notebooks (via
                 JupyterLite/Pyodide), so you can explore 2B quantum bound state problems
@@ -27,27 +27,13 @@ const Guide = () => {
             </ol>
             <p><strong>Visual cue:</strong> You will see the Jupyter toolbar (Run,
                 Kernel, etc.) and executable code cells.</p>
+            <h2 id="changing-input-parameters">Changing Input Parameters</h2>
             <p>Parameters are defined near the top of each notebook in
                 <em>Parameters</em> section. Edit them, then re-run the cell.</p>
-            <h4 className="text-sm sm:text-base">(A) Mesh / Discretization</h4>
-            <div class="python">
-                <p># Discretization (edit these) Np = 300 # number of momentum points
-                    Nphi = 40 # number of angular points</p>
-            </div>
-            <h4 className="text-sm sm:text-base"> (B) Partial-Wave Channel</h4>
-            <div class="python">
-                <p># Quantum numbers m_angular = 0 # partial-wave index (e.g., 0, 1, 2,
-                    ...)</p>
-            </div>
-            <h4 className="text-sm sm:text-base">(C) Potential Parameters
-                (examples)</h4>
-            <div class="python">
-                <p># Coulomb (Hydrogenic) Z = 2</p>
-                <p># Malfliet-Tjon (Deuteron) Vr = 1438.72280 # MeV.fm Mr = 3.21 # fm^-1
-                    Va = -600.0 # MeV.fm Ma = 1.550 # fm^-1</p>
-                <p># Rytova-Keldysh (Exciton) m_e = 0.55 * me # Electron mass in eV for
-                    MoSe2 m_h = 0.59 * me # Hole mass in eV for MoSe2 r_0 = 53.1624 #
-                    screening length for MoSe2</p>
+
+
+            <div className="flex justify-center" >
+                <Image src={Code_1} className="w-3/5 my-2 justify-center " alt={"#"} />
             </div>
             <p><strong>Visual cue:</strong> Parameter cells are labeled
                 <em>Parameters</em>. Start with defaults and increase (Np, Nphi)
@@ -67,9 +53,81 @@ const Guide = () => {
                 running, then <code>[Idle]</code> as execution completes.</p>
             <h2 className=" text-lg sm:text-xl">Expected Outputs</h2>
             <h4 className="text-sm sm:text-base"><strong>(1) Energy Search / Binding Energy</strong> During the iterative solution of the LS equation, you will see a
-                short search log. A typical printout for exciton:</h4>
+                short search log. A typical printout for exciton:
+            </h4>
 
+            <div className="flex justify-center" >
+                <Image src={Code_2} className="w-3/5 my-2 justify-center " alt={"#"} />
+            </div>
+            <p><strong>Visual cue:</strong> If convergence is slow, lower <span
+                class="math inline">\(Np\)</span> and <span
+                    class="math inline">\(Nphi\)</span> and then run the cell again.</p>
+
+            <h4 id="hamiltonian-expectation-value-check-only-for-exciton"><strong>(2)
+                Hamiltonian Expectation Value Check (only for exciton)</strong> Each calculated binding energy <span class="math inline">\(E\)</span>
+                is checked against the expectation value <span
+                    class="math inline">\(\langle H\rangle = \langle H_0\rangle + \langle
+                    V\rangle\)</span> computed from the corresponding wave function. A
+                typical printout for exciton:</h4>
+            <div className="flex justify-center" >
+                <Image src={Code_3} className="w-3/5 my-2 justify-center " alt={"#"} />
+            </div>
+            <p><strong>Expectation:</strong> The relative percentage difference
+                should be very small (near machine precision for well converged binding
+                energies), indicating numerical consistency.</p>
+            <h4 id="wave-function-plots"><strong>(3) Wave-Function Plots</strong>You will see momentum space wave functions <span
+                class="math inline">\(\psi^{`{(n)}_{m}`}(p)\)</span> for ground and, when
+                present, excited states. A typical output wave function plot for exciton
+                is shown in Fig 4.</h4>
+            <div className="flex justify-center" >
+                <Image src={Graph} className="w-2/5 my-2 justify-center " alt={"#"} />
+            </div>
+            <p><strong>Visual cue:</strong> Ground states are typically broader in
+                <span class="math inline">\(p\)</span>; excited states exhibit nodes and
+                shift weight toward lower <span class="math inline">\(p\)</span> as
+                spatial extent increases.</p>
+
+
+            <h2 className=" text-lg sm:text-xl">Saving or Resetting Your
+                Work</h2>
+            <ul className="list-disc space-y-2">
+                <li><p><strong>Download your edits:</strong> Right-click a notebook
+                    (<span><em>i.e. Exciton<span
+                        class="math inline">\(_-\)</span>2D.ipynb</em></span>) and choose
+                    <em>Download</em>.</p></li>
+                <li><p><strong>Save figures:</strong> Select the plot, then drag and
+                    drop it onto your device.</p></li>
+                <li><p><strong>Reset to original:</strong> Refresh the page (sessions
+                    are ephemeral).</p></li>
+            </ul>
+            <h2 className=" text-lg sm:text-xl">Troubleshooting</h2>
+            <ul className="list-disc space-y-2">
+                <li><p><strong>Blank or unresponsive:</strong> Ensure JavaScript is
+                    enabled; refresh the page.</p></li>
+                <li><p><strong>Memory or speed issues:</strong> Reduce Np or Nphi; close
+                    heavy tabs.</p></li>
+                <li><p><strong>Stuck kernel:</strong> <em>Kernel</em> <span
+                    class="math inline">\(\rightarrow\)</span> <em>Restart
+                        Kernel</em>.</p></li>
+                <li><p><strong>No changes after edits:</strong> <em>Run</em> <span
+                    class="math inline">\(\rightarrow\)</span> <em>Run All
+                        Cells</em>.</p></li>
+            </ul>
+            <h2 className=" text-lg sm:text-xl">Quick Checklist</h2>
+            <ol className="list-decimal">
+                <li><p>Open a notebook and <em>Run All</em> once.</p></li>
+                <li><p>Edit <code>Np</code>, <code>Nphi</code>, <code>m</code>, and
+                    potential parameters.</p></li>
+                <li><p><em>Restart Kernel and Run All Cells</em>.</p></li>
+                <li><p>Confirm convergence of energy; check <span
+                    class="math inline">\(\langle H\rangle\)</span> vs. <span
+                        class="math inline">\(E\)</span> (small relative percentage difference);
+                    inspect wave-function plots.</p></li>
+                <li><p>Download the notebook or images if you wish to keep
+                    results.</p></li>
+            </ol>
         </div>
+
     )
 }
 export default Guide;
