@@ -32,21 +32,21 @@ const LpS = () => {
     <div>
       <h2 className=" text-lg sm:text-xl" >Lippmann–Schwinger Equation for 2B Bound States in 2D</h2>
       <p>The starting point for a 2B bound state with reduced mass <span
-        class="math inline">\(\mu\)</span> is the time-independent Schrödinger equation
+        className="math inline">\(\mu\)</span> is the time-independent Schrödinger equation
 
-        <span class="math display">\[(H_0+V)|\Psi
+        <span className="math display">\[(H_0+V)|\Psi
           \rangle = E|\Psi\rangle,\]
         </span>
 
 
         where <span
-          class="math inline">\(H_0\)</span> represents the free Hamiltonian,
-        <span class="math inline">\(V\)</span> is the interaction, <span class="math inline">\(E\) &lt; 0 </span>  is the
+          className="math inline">\(H_0\)</span> represents the free Hamiltonian,
+        <span className="math inline">\(V\)</span> is the interaction, <span className="math inline">\(E\) &lt; 0 </span>  is the
         binding energy, and <span
-          class="math inline">\(|\Psi\rangle\)</span> is the corresponding bound state wave function. Rearranging the 
+          className="math inline">\(|\Psi\rangle\)</span> is the corresponding bound state wave function. Rearranging the 
           Schrödinger equation gives the homogeneous LS equation for a bound state
           
-          <span class="math display">\[|\Psi\rangle = {`\\frac{1}{E - H_0}`} V
+          <span className="math display">\[|\Psi\rangle = {`\\frac{1}{E - H_0}`} V
                 |\Psi\rangle.\]</span></p>
 
         

@@ -23,7 +23,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navi />
         <script type="text/javascript">
           var sc_project=13006461;
           var sc_invisible=1;

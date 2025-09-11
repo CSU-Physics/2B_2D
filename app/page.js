@@ -5,6 +5,7 @@ import Theory from "./Pages/Theory";
 import Script from "next/script";
 import Guide from "./Pages/Guide";
 import Citation from "./Pages/Citation";
+import Navi from "./Components/Navi";
 export default function Home() {
   return (
     <main className="max-w-screen flex flex-col justify-between items-center  ">
@@ -12,6 +13,8 @@ export default function Home() {
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
         type="text/javascript"></Script>
       <Banner />
+      <Navi />
+
       <div  >
 
         <section className="px-1 md:px-14 lg:px-28 my-4" >
@@ -19,10 +22,10 @@ export default function Home() {
           <Theory />
           <Cases />
           <Guide />
-          <Citation/>
+          <Citation />
         </section>
 
-{/* <Guide/> */}
+        {/* <Guide/> */}
       </div>
 
     </main>

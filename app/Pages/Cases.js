@@ -5,11 +5,11 @@ import Table_3 from "../Equations/Table_3.png"
 import Table_4 from "../Equations/Table_4.png"
 import Table_5 from "../Equations/Table_5.png"
 import Table_6 from "../Equations/Table_6.png"
-import Image from "next/image";
+import Image from "next/image"
 const Hydro = () => {
     return (
         <div id="Hydrogen" className='scroll-mt-20' >
-            <h2 className=" text-lg sm:text-xl" >Hydrogenic atom in 2D</h2>
+            <h2 className=" text-lg sm:text-xl font-semibold" >Hydrogenic atom in 2D</h2>
             <p>We begin with the 2D hydrogenic system, a well-established case that
                 provides an ideal benchmark for testing the accuracy of our numerical
                 method. In contrast to its three-dimensional analogue, the 2D system
@@ -53,7 +53,7 @@ const Hydro = () => {
 const Deutro = () => {
     return (
         <div id="Deuteron" className='scroll-mt-20' >
-            <h2 className=" text-lg sm:text-xl" >Deuteron in 2D</h2>
+            <h2 className=" text-lg sm:text-xl font-semibold" >Deuteron in 2D</h2>
             <p>
                 This section presents the numerical simulation of the deuteron, the
                 bound state of one proton and one neutron, in 2D using the MT potential,
@@ -105,7 +105,7 @@ const Deutro = () => {
 const Excit = () => {
     return (
         <div id="Exciton" className='scroll-mt-20' >
-            <h2 className=" text-lg sm:text-xl" >Excitons in 2D Materials</h2>
+            <h2 className=" text-lg sm:text-xl font-semibold" >Excitons in 2D Materials</h2>
             <p className=" text-start" >
                 Having validated the framework on 2D hydrogenic atoms and the
                 deuteron, we now apply it to excitons-bound electron-hole pairs formed
@@ -191,7 +191,7 @@ const Cases = () => {
             <Script
                 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
                 type="text/javascript"></Script>
-            <h1 className=" text-xl sm:text-xl">Systems Studied</h1>
+            <h1 className=" text-xl sm:text-xl font-semibold">Systems Studied</h1>
             <p className="">
                 To ensure the robustness and accuracy of our computational framework, a critical first step is validating
                 the numerical methods against established benchmarks. For this purpose, we compare our simulated

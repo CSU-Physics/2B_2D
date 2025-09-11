@@ -1,19 +1,19 @@
 "use client";
-
+import { FaHome } from "react-icons/fa";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <nav className="w-full bg-white shadow-md sticky top-0 z-50">
-      <div className="flex items-center justify-between h-14">
-        {/* Logo / Title */}
+    <nav className="w-full bg-white shadow-sm sticky top-0 z-50">
+      <div className="flex items-center justify-center h-14">
+        {/* Logo / Title
         <Link
           href="https://csu-physics.github.io/"
           className="text-lg font-semibold text-blue-700 ml-2 select-none outline-none"
         >
-          CSU Physics
-        </Link>
+          <FaHome size={60} className="w-[45px] h-[30px] " />
+        </Link> */}
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6 mr-2">
