@@ -8,7 +8,7 @@ import Citation from "./Pages/Citation";
 import Navi from "./Components/Navi";
 export default function Home() {
   return (
-    <main className="max-w-screen flex flex-col justify-between items-center  ">
+    <main className="max-w-screen flex flex-col justify-between items-center bg-white ">
       <Script
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
         type="text/javascript"></Script>

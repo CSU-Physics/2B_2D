@@ -1,10 +1,8 @@
 import Script from "next/script";
-import Table_1 from "../Equations/Table_1.png"
-import Table_2 from "../Equations/Table_2.png"
-import Table_3 from "../Equations/Table_3.png"
-import Table_4 from "../Equations/Table_4.png"
-import Table_5 from "../Equations/Table_5.png"
-import Table_6 from "../Equations/Table_6.png"
+import Figure_1 from "../Assets/Figure_1.png"
+import Figure_2 from "../Assets/Figure_2.png"
+import Figure_3 from "../Assets/Figure_3.png"
+
 import Image from "next/image"
 const Hydro = () => {
     return (
@@ -25,9 +23,9 @@ const Hydro = () => {
                     {`\\dfrac{-Z}`}{`{2\\pi \\vert {\\mathbf q}\\vert}`}, \quad {`\\mathbf q`}= {`\\mathbf p`}-
                     {`{\\mathbf p}`}&#39;.\]</span>
                 The analytical solutions of the LS integral
-                equation for the 2B binding energy levels are given in Ref. <span
+                equation for the 2B binding energy levels are given in Ref. <span 
                     className="citation" data-cites="parfitt2002two"></span> <span
-                        className="math display">\[E_{`{exact}`} = -{`\\dfrac{Z ^ 2 m}{4\\left(n + 1/2\\right)^2}`}, \quad n = 0, 1,
+                        className="math display" >\[E_{`{exact}`} = -{`\\dfrac{Z ^ 2 m}{4\\left(n + 1/2\\right)^2}`}, \quad n = 0, 1,
                     2, \ldots\]</span> The exact energy levels for 2D hydrogenic atoms offer
                 a clear reference for comparison. Evaluating the agreement between our
                 computed values and the known analytical results allows us to assess the
@@ -40,11 +38,110 @@ const Hydro = () => {
                 and the first three excited states, demonstrating the accuracy and
                 reliability of our method.
             </p>
+            {/*Table 1*/}
+            <div className=" grid grid-rows-1 justify-items-center " >
+                <p className=" mb-4 text-start break-words w-9/12 "> <span className="font-bold" >Table 1</span> Comparison of analytical (<span
+                    className="math inline">{`\\(E_{num}\\)`}</span>) and numerical (<span
+                        className="math inline">{`\\(E_{num}\\)`}</span>) 2B binding energies, obtained
+                    from Eqs. (14) and (4), respectively, for the 2D
+                    hydrogenic atom with partial wave <span
+                        className="math inline">\(m=0\)</span> and nuclear charge <span
+                            className="math inline">\(Z=2\)</span>. Calculations employ <span
+                                className="math inline">\(500\)</span> grid points for the magnitude of the
+                    relative momentum and <span className="math inline">\(40\)</span> points for
+                    the angular variables.
+                </p>
+                <table className="w-fit " >
+                    <thead>
+                        <tr className="header">
+                            <th styles={{ textAlign: "left" }}>n</th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}><span
+                                className="math inline">\(E_{`exact`}\)</span><span className="citation"
+                                    data-cites="parfitt2002two"></span></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(E_{Num}\\)`}</span></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}><span
+                                className="math inline">\(\left({`\\dfrac{E_{exact} - E_{num}}{E_{exact}}`}
+                                \right) \times 100 \%\)</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr className="odd">
+                            <td styles={{ textAlign: "left" }}>0</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}>-4.00000</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}>-3.99928</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}>0.01800</td>
+                        </tr>
+                        <tr className="even">
+                            <td styles={{ textAlign: "left" }}>1</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}>-0.44444</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}>-0.44441</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}>0.00700</td>
+                        </tr>
+                        <tr className="odd">
+                            <td styles={{ textAlign: "left" }}>2</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}>-0.16000</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}>-0.16017</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}>0.10625</td>
+                        </tr>
+                        <tr className="even">
+                            <td styles={{ textAlign: "left" }}>3</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}>-0.08163</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}>-0.08193</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}>0.36751</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-            <div className="flex justify-center" >
-                <Image src={Table_1} className="w-3/5 my-2 justify-center " alt={"#"} />
+                <p className="" > <span className="" >Fig. 1</span> complements the
+                    binding‐energy results in Table <a href="#table_hydrogen_BE"
+                        data-reference-type="ref" data-reference="table_hydrogen_BE">1</a> by
+                    showing momentum-space hydrogenic wave functions for <span
+                        className="math inline">{`\\(n=0-3\\)`}</span>. The plots depict <span
+                            className="math inline">{`\\(\\psi^{(n)}_{m}(p)\\)`}</span> versus relative
+                    momentum <span className="math inline">{`\\(p\\)`}</span>, highlighting how the
+                    momentum distribution varies with the energy level. The ground state
+                    exhibits a broader high-<span className="math inline">\(p\)</span>
+                    distribution, whereas excited states (<span
+                        className="math inline">{`\\(n=1,2,3\\)`}</span>) develop nodes and shift weight
+                    toward lower <span className="math inline">{`\\(p\\)`}</span>, consistent with
+                    their larger spatial extent in configuration space.</p>
+
+                <div className=" text-start bg-black h-fit   " >
+                    <Image src={Figure_1} className="w-fit justify-center  h-3/5 " alt={"#"} />
+                </div>
+
+                <p className="w-9/12" ><span className="font-bold" >Figure 1</span> Ground (<span class="math inline">{`\\(n=0\\)`}</span>) and first three
+                    excited (<span class="math inline">{`\\(n=1-3\\)`}</span>) momentum-space wave
+                    functions <span class="math inline">{`\\(\psi^{(n)}_{m}(p)\\)`}</span> of the
+                    2D hydrogenic atom for partial wave <span
+                        class="math inline">{`\\(m=0\\)`}</span> and nuclear charge <span
+                            class="math inline">{`\\(Z=2\\)`}</span> as functions of relative momentum
+                    <span class="math inline">{`\\(p\\)`}</span>. States correspond to the
+                    numerical binding energies in Table 1
+                </p>
             </div>
-            <div className="my-10" >
+            {/* <div className="flex justify-center" >
+                <Image src={Table_1} className="w-3/5 my-2 justify-center " alt={"#"} />
+            </div> */}
+
+
+            <div className="my-8" >
                 <iframe src="https://csu-physics.github.io/Hydrogn_2D.github.io/lab/index.html?enableMemoryStorage=0" width="100%" height="650px" />
             </div>
         </div >
@@ -73,9 +170,61 @@ const Deutro = () => {
                     className="math inline">\(V(q)\)</span> are plotted in Fig. as functions of the momentum
                 transfer <span className="math inline">\(q\)</span>.
             </p>
-            <div className="flex justify-center" >
-                <Image src={Table_2} className="w-3/5 my-2 justify-center " alt={"#"} />
+
+            {/* Table 2 */}
+            <div id="table:MT-I-parameters" className="grid grid-rows-1 justify-items-center" >
+
+                <p className=" text-start"> <span className="font-bold" >Table 2</span> Parameter sets for the two MT potential models used in our
+                    calculations.
+                </p>
+
+                <table className=" w-fit " >
+                    <thead>
+                        <tr className="header">
+                            <th styles={{ textAlign: "center" }}>MT-model</th>
+                            <th styles={{ textAlign: "center" }}><span className="math inline">{`\\(V_a \\, \\text{(MeV  fm)}\\)`}</span></th>
+                            <th styles={{ textAlign: "center" }}><span className="math inline">{`\\(\\mu_a \\,  (\\text{fm}^{-1})\\)`}</span></th>
+                            <th styles={{ textAlign: "center" }}><span className="math inline">{`\\(V_r \\, \\text{(MeV  fm)}\\)`}</span></th>
+                            <th styles={{ textAlign: "center" }}><span className="math inline">{`\\(\mu_r \\, (\\text{fm}^{-1})\\)`}</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr className="odd">
+                            <td styles={{ textAlign: "center" }}>Model-1</td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-600.00\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(1.550\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(1438.7228\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(3.21\)</span></td>
+                        </tr>
+                        <tr className="even">
+                            <td styles={{ textAlign: "center" }}>Model-2</td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-600.00\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(1.550\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(0\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(0\)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <Image src={Figure_2} className="w-fit  justify-center " alt={"#"} />
+                </div>
+                <p><span className="font-bold" >Figure 2</span> Comparison of the two MT potentials as functions of the momentum transfer <span class="math inline">{`\\(q\\)`}</span>. </p>
             </div>
+
+
+            {/* <div className="flex justify-center" >
+                <Image src={Table_2} className="w-3/5 my-2 justify-center " alt={"#"} />
+            </div> */}
+
+
             <p>In our calculations, we use the nucleon mass with <span
                 className="math inline">\(\hbar^{2}/m = 41.47\ MeV \text{`·fm`}^2\)</span>. As
                 shown in Table , the computed binding
@@ -92,9 +241,65 @@ const Deutro = () => {
                     className="math inline">\(n=0\)</span> and <span
                         className="math inline">\(n=1\)</span>.
             </p>
-            <div className="flex justify-center" >
-                <Image src={Table_3} className="w-3/5 my-2 justify-center " alt={"#"} />
+
+            {/* Table 3 */}
+
+            <div id="Deuteron_bidning_energy" className=" grid grid-rows-1 justify-items-center " >
+                <p className=" text-start w-8/12 "> <span className="font-bold" >Table 3</span> Calculated 2D deuteron binding energies for the two MT
+                    potential models, using <span className="math inline">\(200\)</span> grid
+                    points for the 2B relative-momentum magnitude and <span
+                        className="math inline">\(101\)</span> grid points for the angular
+                    variables.</p>
+                <table className="w-fit" >
+
+                    <thead>
+                        <tr className="header">
+                            <th styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(E_{d}\\)`}</span> (MeV)</th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(E^{(0)}_{d}\\)`}</span> (MeV)</th>
+                            <th styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(E^{(1)}_{d}\\)`}</span> (MeV)</th>
+                            <th styles={{ textAlign: "center" }}></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr className="odd">
+                            <td styles={{ textAlign: "center" }}>Model-1</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td colSpan="2" styles={{ textAlign: "center" }}>Model-2</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                        </tr>
+                        <tr className="even">
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-6.246\)</span></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-7806\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-312.4\)</span></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div className=" text-start bg-black  h-fit " >
+                    <Image src={Figure_3} className="w-fit justify-center " alt={"#"} />
+                </div>
+                <p className="w-9/12" ><span className="font-bold" >Figure 3</span> 2D momentum-space deuteron wave functions <span
+                    class="math inline">{`\\(\\psi(p)\\)`}</span>, computed with the MT potential:
+                    Model 1 {`(left)`} and Model 2 {`(right),`} plotted versus relative momentum
+                    <span class="math inline">{`\\(p\\)`}</span>.
+                </p>
+
             </div>
+
+
+
+            {/* <div className="flex justify-center" >
+                <Image src={Table_3} className="w-3/5 my-2 justify-center " alt={"#"} />
+            </div> */}
             <div className="my-10" >
                 <iframe src="https://csu-physics.github.io/Pedagogical-and-Numerical-Test-Deuteron-in-2D/lab/index.html" width="100%" height="650px" />
             </div>
@@ -143,9 +348,122 @@ const Excit = () => {
                 The material-dependent RK parameters used in our calculations are summarized in Table <a>4</a>.
             </p>
 
-            <div className="flex justify-center" >
-                <Image src={Table_4} className="w-3/5 my-2 justify-center " alt={"#"} />
+            {/* Table 4 */}
+            <div id="tab:rk_params" className=" grid grid-rows-1 justify-items-center " >
+                <p className="w-9/12 text-start"> <span className="font-bold" >Table 4</span> Electron-hole RK potential parameters for monolayer TMDs,
+                    electron and hole effective masses <span
+                        className="math inline">{`\\(m_e\\)`}</span>, <span
+                            className="math inline">{`\\(m_h\\)`}</span> (in units of <span
+                                className="math inline">{`\\(m_0\\)`}</span>) and screening length <span
+                                    className="math inline">{`\\(r_0\\)`}</span> (Å), for MoS<span
+                                        className="math inline">{`\\(_2\\)`}</span>, MoSe<span
+                                            className="math inline">{`\\(_2\\)`}</span>, WS<span
+                                                className="math inline">{`\\(_2\\)`}</span>, and WSe<span
+                                                    className="math inline">{`\\(_2\\)`}</span>; values from density functional theory
+                    in Ref. <span className="citation"
+                        data-cites="PhysRevB.92.205418"></span>.</p>
+                <table className="w-fit " >
+                    {/*  */}
+                    <thead>
+                        <tr className="header">
+                            <th styles={{ textAlign: "left" }}>Substance</th>
+                            <th styles={{ textAlign: "center" }}><span className="math inline">{`\\(m_e \\ (m_0)\\)`}</span></th>
+                            <th styles={{ textAlign: "center" }}><span className="math inline">{`\\(m_h \\  (m_0)\\)`}</span></th>
+                            <th styles={{ textAlign: "center" }}><span className="math inline">{`\\(r_0\\)`}</span>
+                                (Å)</th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr className="odd">
+                            <td styles={{ textAlign: "left" }}>MoS<span
+                                className="math inline">\(_2\)</span></td>
+                            <td styles={{ textAlign: "center" }}>0.47</td>
+                            <td styles={{ textAlign: "center" }}>0.54</td>
+                            <td styles={{ textAlign: "center" }}>44.6814</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                        </tr>
+                        <tr className="even">
+                            <td styles={{ textAlign: "left" }}>MoSe<span
+                                className="math inline">\(_2\)</span></td>
+                            <td styles={{ textAlign: "center" }}>0.55</td>
+                            <td styles={{ textAlign: "center" }}>0.59</td>
+                            <td styles={{ textAlign: "center" }}>53.1624</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                        </tr>
+                        <tr className="odd">
+                            <td styles={{ textAlign: "left" }}>WS<span
+                                className="math inline">\(_2\)</span></td>
+                            <td styles={{ textAlign: "center" }}>0.32</td>
+                            <td styles={{ textAlign: "center" }}>0.35</td>
+                            <td styles={{ textAlign: "center" }}>40.1747</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                        </tr>
+                        <tr className="even">
+                            <td styles={{ textAlign: "left" }}>WSe<span
+                                className="math inline">\(_2\)</span></td>
+                            <td styles={{ textAlign: "center" }}>0.34</td>
+                            <td styles={{ textAlign: "center" }}>0.36</td>
+                            <td styles={{ textAlign: "center" }}>47.5701</td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            {/* <div className="flex justify-center" >
+                <Image src={Table_4} className="w-3/5 my-2 justify-center " alt={"#"} />
+            </div> */}
             <p>Our exciton binding energies for monolayer MoS<span
                 className="math inline">\(_2\)</span>, MoSe<span
                     className="math inline">\(_2\)</span>, WS<span
@@ -161,9 +479,98 @@ const Excit = () => {
                 momentum/angle discretization, kernel construction, and diagonalization
                 are converged and the solutions are numerically reliable.
             </p>
-            <div className="flex justify-center" >
-                <Image src={Table_5} className="w-3/6 my-2 justify-center " alt={"#"} />
+
+            {/* Table 5 */}
+            <div id="table:exciton_bindings" className=" grid grid-rows-1 justify-items-center " >
+                <p className="w-9/12 text-start"> <span className="font-bold" >Table 5</span> Exciton binding energies and Hamiltonian expectation values for monolayer TMDs.
+                    with
+                    the corresponding Hamiltonian expectation values, <span
+                        className="math inline">\(\langle H\rangle=\langle H_0\rangle+\langle
+                        V\rangle\)</span>, along with their relative percentage differences.
+                    Calculations use <span className="math inline">\(500\)</span> grid points in
+                    the relative momentum magnitude <span className="math inline">\(p\)</span>
+                    and <span className="math inline">\(40\)</span> in the azimuthal angle.
+                </p>
+                <table className="w-fit" >
+
+                    <thead>
+                        <tr className="header">
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(E_{2B}\\)`}</span> (meV)</th>
+                            <th styles={{ textAlign: "center" }}><span className="math inline">{`\\(\\langle H_0 \\rangle\\)`}</span> (meV)</th>
+                            <th styles={{ textAlign: "center" }}><span className="math inline">{`\\(\\langle V\\rangle\\)`}</span> (meV)</th>
+                            <th styles={{ textAlign: "center" }}><span className="math inline">{`\\(\\langle H\\rangle\\)`}</span> (meV)</th>
+                            <th styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(\\vert  \\frac{\\langle H \\rangle- E_{2B}}{E_{2B}} \\vert  \\times 100 \\%\\)`}</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr className="odd">
+                            <td styles={{ textAlign: "center" }}>MoS<span
+                                className="math inline">\(_2\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-529.821\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(135.816\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-665.637\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-529.821\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span className="math inline">\(5.73 \cdot
+                                10^{-7}\)</span></td>
+                        </tr>
+                        <tr className="even">
+                            <td styles={{ textAlign: "center" }}>MoSe<span
+                                className="math inline">\(_2\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-480.553\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(116.507\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-597.060\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-480.553\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span className="math inline">\(1.40 \cdot
+                                10^{-7}\)</span></td>
+                        </tr>
+                        <tr className="odd">
+                            <td styles={{ textAlign: "center" }}>WS<span
+                                className="math inline">\(_2\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-512.597\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(144.819\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-657.416\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-512.597\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span className="math inline">\(2.45 \cdot
+                                10^{-6}\)</span></td>
+                        </tr>
+                        <tr className="even">
+                            <td styles={{ textAlign: "center" }}>WSe<span
+                                className="math inline">\(_2\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-460.118\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(124.665\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-584.783\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">\(-460.118\)</span></td>
+                            <td styles={{ textAlign: "center" }}><span className="math inline">\(1.38 \cdot
+                                10^{-7}\)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            {/* <div className="flex justify-center" >
+                <Image src={Table_5} className="w-3/6 my-2 justify-center " alt={"#"} />
+            </div> */}
+
+
             <p>In Table 6, we show the convergence of
                 exciton binding energies for the TMDs as a function of the number of
                 mesh points in the relative momentum magnitude <span
@@ -175,9 +582,104 @@ const Excit = () => {
                 materials, with relative percentage differences below <span
                     className="math inline">\(0.3\%\)</span>.
             </p>
-            <div className="flex justify-center" >
-                <Image src={Table_6} className="w-3/5 my-2 justify-center " alt={"#"} />
+
+            {/* Table 6 */}
+            <div id="table_exciton_mesh" className=" grid grid-rows-1 justify-items-center " >
+                <p className=" text-start"> <span className="font-bold" >Table 6</span> Exciton binding energies (meV) for different numbers of mesh points.
+                </p>
+                <table className="w-fit" >
+                    {/* <caption>Exciton binding energies (meV) for different numbers of mess
+                        points.</caption>*/}
+                    <thead>
+                        <tr className="header">
+                            <th styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(N_p\\)`}</span></th>
+                            <th styles={{ textAlign: "center" }}>500</th>
+                            <th styles={{ textAlign: "center" }}>600</th>
+                            <th styles={{ textAlign: "center" }}>700</th>
+                            <th styles={{ textAlign: "center" }}>800</th>
+                            <th styles={{ textAlign: "center" }}><span className="math inline">{`\\(\\to \\infty\\)`}</span></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                            <th styles={{ textAlign: "center" }}></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr className="odd">
+                            <td styles={{ textAlign: "center" }}>Mo<span
+                                className="math inline">{`\\(\\text{S}_2\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-529.821\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-527.901\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-526.718\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-525.955\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-524.872\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                        </tr>
+                        <tr className="even">
+                            <td styles={{ textAlign: "center" }}>MoSe<span
+                                className="math inline">{`\\(_2\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-480.553\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-478.640\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-477.460\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-476.700\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-475.753\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                        </tr>
+                        <tr className="odd">
+                            <td styles={{ textAlign: "center" }}>W<span
+                                className="math inline">{`\\(\\text{S}_2\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-512.597\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-510.759\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-509.613\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-508.866\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-507.613\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                        </tr>
+                        <tr className="even">
+                            <td styles={{ textAlign: "center" }}>WSe<span
+                                className="math inline">{`\\(_2\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-460.118\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-458.303\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-457.170\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-456.426\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}><span
+                                className="math inline">{`\\(-454.772\\)`}</span></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                            <td styles={{ textAlign: "center" }}></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            {/* <div className="flex justify-center" >
+                <Image src={Table_6} className="w-3/5 my-2 justify-center " alt={"#"} />
+            </div> */}
             <div className="my-10" >
                 <iframe src="https://msak-ai.github.io/Exciton_2D/lab/index.html?enableMemoryStorage=0" width="100%" height="650px" />
             </div>

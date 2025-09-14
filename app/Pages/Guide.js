@@ -81,6 +81,10 @@ const Guide = () => {
                 is shown in Fig 4.</h4>
             <div className="flex justify-center" >
                 <Image src={Graph} className="w-2/5 my-2 justify-center " alt={"#"} />
+
+                {/* <div>
+                    <p><span className="font-bold" >Figure 4</span></p>
+                </div> */}
             </div>
             <p><strong>Visual cue:</strong> Ground states are typically broader in
                 <span className="math inline">\(p\)</span>; excited states exhibit nodes and
