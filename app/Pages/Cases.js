@@ -23,7 +23,7 @@ const Hydro = () => {
                     {`\\dfrac{-Z}`}{`{2\\pi \\vert {\\mathbf q}\\vert}`}, \quad {`\\mathbf q`}= {`\\mathbf p`}-
                     {`{\\mathbf p}`}&#39;.\]</span>
                 The analytical solutions of the LS integral
-                equation for the 2B binding energy levels are given in Ref. <span 
+                equation for the 2B binding energy levels are given in Ref. <span
                     className="citation" data-cites="parfitt2002two"></span> <span
                         className="math display" >\[E_{`{exact}`} = -{`\\dfrac{Z ^ 2 m}{4\\left(n + 1/2\\right)^2}`}, \quad n = 0, 1,
                     2, \ldots\]</span> The exact energy levels for 2D hydrogenic atoms offer
@@ -687,6 +687,43 @@ const Excit = () => {
     )
 }
 
+const Gen = () => {
+    return (
+        <div>
+            <h2 className=" text-lg sm:text-xl font-semibold" >Extending Beyond the Case Studies: General 2B Bound States in 2D</h2>
+            <p>After the three example case studies, Hydrogenic atom in 2D, Deuteron in 2D, and Excitons in 2D materials, the following code is meant to serve as a general interactive environment for studying any two-body bound state in 2D, as long as the interaction is specified in configuration space as a function of the relative distance r.
+                The core idea is simple: you provide a potential V(r) in configuration space, and the code handles the transformation to momentum space, builds the Lippmann–Schwinger kernel, and computes the binding energy and corresponding wave function.
+                <br></br>
+                <span> In practice, you have three options: use one of the two pre-defined potentials or define a new potential in the build_V_r function:</span>
+            </p>
+            <ul className="list-disc space-y-2">
+                <li><p><strong>Use the pre-defined Coulomb-like potential</strong>
+                    <br></br>
+                    Appropriate for hydrogenic systems or excitons where a long-range attractive interaction is dominant.
+                    You select this by choosing the Coulomb option in the <span className="  italic" >potential_type</span> setting.
+                </p></li>
+                <li>
+                    <p><strong>Use the pre-defined Malfliet–Tjon (MT) potential</strong>
+                        <br></br>
+                        Suitable for nuclear-type systems like the deuteron, where the interaction has both short-range repulsive and intermediate-range attractive parts. You select this by choosing the MT option in <span className="  italic" >potential_type</span>. The standard MT parameters are already coded, but you can adjust them if you wish to explore variations.
+                    </p></li>
+                <li><p><strong>Define your own custom potential in configuration space</strong>
+                    <br></br>
+
+                    For any other two-body system, you can choose the “custom” option in <span className=" italic" >potential_type</span> and then modify the <span className=" italic" >“custom”</span> section of the potential-building function to implement your desired interaction. This is where you directly specify how the potential depends on the radial coordinate r. By editing just this part of the code, you can explore a wide variety of model interactions without changing the rest of the numerical machinery.
+                </p></li>
+            </ul>
+            <p>Regardless of which option you choose—<span className=" italic" >Coulomb</span>, <span className=" italic" >Malfliet–Tjon</span>, or a <span className=" italic" >custom</span> interaction—it is essential to ensure that the <span className=" italic" >mass</span> parameter in the <span className=" italic" >get_mass</span> function is defined consistently with your physical problem and units. The mass determines how the kinetic term is treated and therefore has a direct impact on the resulting binding energy. When you introduce a new potential or change the physical system you are modeling, remember to update the mass definition in the configuration section of the script so that it matches your chosen units and physical context.</p>
+
+            <div className="my-8" >
+                <iframe src="https://csu-physics.github.io/General-2B-Bound-States-in-2D/lab/index.html?enableMemoryStorage=0" width="100%" height="650px" />
+            </div>
+        </div>
+
+
+    )
+}
+
 const Cases = () => {
     return (
         <div className="">
@@ -710,6 +747,7 @@ const Cases = () => {
             <Hydro />
             <Deutro />
             <Excit />
+            <Gen />
         </div>
     )
 }
